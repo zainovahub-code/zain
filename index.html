@@ -6,61 +6,26 @@
 <title>🎨 Free Tools Hub</title>
 <style>
     body {
-        font-family: 'Arial', sans-serif;
+        font-family: Arial, sans-serif;
         background: linear-gradient(120deg, #89f7fe, #66a6ff);
         padding: 20px;
         margin: 0;
     }
-    h1 {
-        text-align: center;
-        color: #fff;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-    }
+    h1 { text-align: center; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
     .tool {
-        background: #fff;
-        padding: 25px;
-        margin: 20px auto;
-        max-width: 500px;
-        border-radius: 15px;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        transition: transform 0.3s;
+        background: #fff; padding: 25px; margin: 20px auto; max-width: 500px;
+        border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); transition: transform 0.3s;
     }
-    .tool:hover {
-        transform: translateY(-5px);
-    }
-    h2 {
-        color: #333;
-        text-align: center;
-    }
+    .tool:hover { transform: translateY(-5px); }
+    h2 { color: #333; text-align: center; }
     input, button, textarea {
-        width: 100%;
-        padding: 12px;
-        margin: 10px 0;
-        font-size: 16px;
-        border-radius: 8px;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
+        width: 100%; padding: 12px; margin: 10px 0; font-size: 16px; border-radius: 8px; border: 1px solid #ccc; box-sizing: border-box;
     }
     button {
-        cursor: pointer;
-        background: linear-gradient(to right, #ff416c, #ff4b2b);
-        color: white;
-        border: none;
-        font-weight: bold;
-        transition: background 0.3s;
+        cursor: pointer; background: linear-gradient(to right, #ff416c, #ff4b2b); color: white; border: none; font-weight: bold; transition: background 0.3s;
     }
-    button:hover {
-        background: linear-gradient(to right, #ff4b2b, #ff416c);
-    }
-    #qrCode img {
-        width: 200px;
-        height: 200px;
-        display: block;
-        margin: 15px auto;
-        border: 5px solid #ff4b2b;
-        border-radius: 15px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
+    button:hover { background: linear-gradient(to right, #ff4b2b, #ff416c); }
+    #qrCode img { width: 200px; height: 200px; display: block; margin: 15px auto; border: 5px solid #ff4b2b; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 </style>
 </head>
 <body>
@@ -74,6 +39,7 @@
     <input type="number" id="pwdLength" value="12" min="4" max="64">
     <button onclick="generatePassword()">Generate Password</button>
     <input type="text" id="password" readonly placeholder="Your password will appear here">
+    <button onclick="copyPassword()">Copy Password</button>
 </div>
 
 <!-- Text Case Converter -->
@@ -84,6 +50,7 @@
     <button onclick="convertCase('lower')">lowercase</button>
     <button onclick="convertCase('capital')">Capitalized</button>
     <textarea id="textOutput" rows="4" placeholder="Converted text will appear here" readonly></textarea>
+    <button onclick="copyConvertedText()">Copy Text</button>
 </div>
 
 <!-- QR Code Generator -->
@@ -92,6 +59,7 @@
     <input type="text" id="qrInput" placeholder="Enter text or URL">
     <button onclick="generateQR()">Generate QR Code</button>
     <div id="qrCode"></div>
+    <button onclick="downloadQR()">Download QR</button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
@@ -106,6 +74,13 @@
         }
         document.getElementById('password').value = password;
     }
+    function copyPassword() {
+        const pwd = document.getElementById('password');
+        pwd.select();
+        pwd.setSelectionRange(0, 99999);
+        document.execCommand('copy');
+        alert('Password copied!');
+    }
 
     // Text Case Converter
     function convertCase(type) {
@@ -114,6 +89,13 @@
         else if(type === 'lower') text = text.toLowerCase();
         else if(type === 'capital') text = text.replace(/\b\w/g, c => c.toUpperCase());
         document.getElementById('textOutput').value = text;
+    }
+    function copyConvertedText() {
+        const output = document.getElementById('textOutput');
+        output.select();
+        output.setSelectionRange(0, 99999);
+        document.execCommand('copy');
+        alert('Text copied!');
     }
 
     // QR Code Generator
@@ -130,9 +112,19 @@
             });
         }
     }
+    function downloadQR() {
+        const qrImg = document.querySelector('#qrCode img');
+        if(qrImg){
+            const a = document.createElement('a');
+            a.href = qrImg.src;
+            a.download = 'qrcode.png';
+            a.click();
+        } else {
+            alert('Please generate QR code first.');
+        }
+    }
 </script>
 
 </body>
 </html>
 
-   
