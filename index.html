@@ -1,94 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🔧 Free Tools Hub</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 20px; background: #f4f4f4; }
-    h1 { text-align: center; }
-    .tool { background: #fff; padding: 20px; margin: 20px auto; border-radius: 10px; max-width: 500px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    button { margin: 5px; padding: 8px 12px; cursor: pointer; }
-    input, textarea { width: 100%; padding: 8px; margin: 10px 0; }
-    .output { background: #eee; padding: 10px; border-radius: 5px; min-height: 30px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎨 Free Tools Hub</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(120deg, #89f7fe, #66a6ff);
+        padding: 20px;
+        margin: 0;
+    }
+    h1 {
+        text-align: center;
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    .tool {
+        background: #fff;
+        padding: 25px;
+        margin: 20px auto;
+        max-width: 500px;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        transition: transform 0.3s;
+    }
+    .tool:hover {
+        transform: translateY(-5px);
+    }
+    h2 {
+        color: #333;
+        text-align: center;
+    }
+    input, button, textarea {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        font-size: 16px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+    button {
+        cursor: pointer;
+        background: linear-gradient(to right, #ff416c, #ff4b2b);
+        color: white;
+        border: none;
+        font-weight: bold;
+        transition: background 0.3s;
+    }
+    button:hover {
+        background: linear-gradient(to right, #ff4b2b, #ff416c);
+    }
+    #qrCode img {
+        width: 200px;
+        height: 200px;
+        display: block;
+        margin: 15px auto;
+        border: 5px solid #ff4b2b;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+</style>
 </head>
 <body>
-  <h1>🔧 Free Tools Hub</h1>
 
-  <!-- Password Generator -->
-  <div class="tool">
+<h1>🎨 Free Tools Hub</h1>
+
+<!-- Password Generator -->
+<div class="tool">
     <h2>🔐 Password Generator</h2>
-    <label>Password Length: <input type="number" id="passLength" value="12" min="4" max="50"></label><br>
-    <button onclick="generatePassword()">Generate</button>
-    <button onclick="copyPassword()">Copy</button>
-    <div id="passwordOutput" class="output">Your password will appear here</div>
-  </div>
+    <label>Password Length:</label>
+    <input type="number" id="pwdLength" value="12" min="4" max="64">
+    <button onclick="generatePassword()">Generate Password</button>
+    <input type="text" id="password" readonly placeholder="Your password will appear here">
+</div>
 
-  <!-- Text Case Converter -->
-  <div class="tool">
+<!-- Text Case Converter -->
+<div class="tool">
     <h2>🔤 Text Case Converter</h2>
-    <textarea id="textInput" placeholder="Type or paste your text here"></textarea>
+    <textarea id="textInput" rows="4" placeholder="Type or paste your text here"></textarea>
     <button onclick="convertCase('upper')">UPPERCASE</button>
     <button onclick="convertCase('lower')">lowercase</button>
-    <button onclick="convertCase('capitalized')">Capitalized</button>
-    <div id="textOutput" class="output">Converted text will appear here</div>
-  </div>
+    <button onclick="convertCase('capital')">Capitalized</button>
+    <textarea id="textOutput" rows="4" placeholder="Converted text will appear here" readonly></textarea>
+</div>
 
-  <!-- QR Code Generator -->
-  <div class="tool">
+<!-- QR Code Generator -->
+<div class="tool">
     <h2>📱 QR Code Generator</h2>
     <input type="text" id="qrInput" placeholder="Enter text or URL">
-    <button onclick="generateQR()">Generate QR</button>
-    <div id="qrOutput" class="output"></div>
-  </div>
+    <button onclick="generateQR()">Generate QR Code</button>
+    <div id="qrCode"></div>
+</div>
 
-  <!-- Scripts -->
-  <script>
+<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+<script>
+    // Password Generator
     function generatePassword() {
-      const length = document.getElementById("passLength").value;
-      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
-      let password = "";
-      for (let i = 0; i < length; i++) {
-        password += chars.charAt(Math.floor(Math.random() * chars.length));
-      }
-      document.getElementById("passwordOutput").innerText = password;
+        const length = document.getElementById('pwdLength').value;
+        const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+";
+        let password = "";
+        for (let i = 0; i < length; i++) {
+            password += charset.charAt(Math.floor(Math.random() * charset.length));
+        }
+        document.getElementById('password').value = password;
     }
-    function copyPassword() {
-      const text = document.getElementById("passwordOutput").innerText;
-      navigator.clipboard.writeText(text);
-      alert("Password copied!");
-    }
+
+    // Text Case Converter
     function convertCase(type) {
-      let text = document.getElementById("textInput").value;
-      if (type === "upper") text = text.toUpperCase();
-      if (type === "lower") text = text.toLowerCase();
-      if (type === "capitalized") text = text.replace(/\b\w/g, c => c.toUpperCase());
-      document.getElementById("textOutput").innerText = text;
+        let text = document.getElementById('textInput').value;
+        if(type === 'upper') text = text.toUpperCase();
+        else if(type === 'lower') text = text.toLowerCase();
+        else if(type === 'capital') text = text.replace(/\b\w/g, c => c.toUpperCase());
+        document.getElementById('textOutput').value = text;
     }
+
+    // QR Code Generator
     function generateQR() {
-      const text = document.getElementById("qrInput").value;
-      if (!text) { alert("Enter text or URL!"); return; }
-      document.getElementById("qrOutput").innerHTML = `<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(text)}">`;
+        const text = document.getElementById('qrInput').value;
+        const qrDiv = document.getElementById('qrCode');
+        qrDiv.innerHTML = "";
+        if(text) {
+            QRCode.toDataURL(text, { width: 200, margin: 2 }, function (err, url) {
+                if(err) console.error(err);
+                const img = document.createElement('img');
+                img.src = url;
+                qrDiv.appendChild(img);
+            });
+        }
     }
-  </script>
+</script>
+
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🔧 Free Tools Hub</title>
-  <style>
-    body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
-    section { border: 1px solid #ddd; padding: 20px; margin: 20px auto; width: 300px; border-radius: 10px; }
-    input, textarea, button { margin: 5px; padding: 8px; width: 90%; }
-    button { cursor: pointer; }
-    h1 { color: #007acc; }
-  </style>
-</head>
-<body>
+
   <h1>🔧 Free Tools Hub</h1>
 
   <!-- Password Generator -->
