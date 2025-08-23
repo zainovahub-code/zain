@@ -107,4 +107,32 @@
         document.getElementById('password').value = password;
     }
 
+    // Text Case Converter
+    function convertCase(type) {
+        let text = document.getElementById('textInput').value;
+        if(type === 'upper') text = text.toUpperCase();
+        else if(type === 'lower') text = text.toLowerCase();
+        else if(type === 'capital') text = text.replace(/\b\w/g, c => c.toUpperCase());
+        document.getElementById('textOutput').value = text;
+    }
+
+    // QR Code Generator
+    function generateQR() {
+        const text = document.getElementById('qrInput').value;
+        const qrDiv = document.getElementById('qrCode');
+        qrDiv.innerHTML = "";
+        if(text) {
+            QRCode.toDataURL(text, { width: 200, margin: 2 }, function (err, url) {
+                if(err) console.error(err);
+                const img = document.createElement('img');
+                img.src = url;
+                qrDiv.appendChild(img);
+            });
+        }
+    }
+</script>
+
+</body>
+</html>
+
    
