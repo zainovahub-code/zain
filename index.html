@@ -1,4 +1,151 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🔧 Free Tools Hub</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      color: #222;
+      margin-bottom: 30px;
+    }
+    .tool-box {
+      background: #fff;
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 12px;
+      max-width: 500px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    label {
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 80%;
+      padding: 8px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .password-box, .result-box {
+      margin: 15px 0;
+      padding: 12px;
+      background: #eee;
+      border-radius: 6px;
+      font-size: 16px;
+      word-break: break-word;
+    }
+    button {
+      padding: 8px 15px;
+      margin: 5px;
+      border: none;
+      border-radius: 6px;
+      background: #4CAF50;
+      color: #fff;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    canvas {
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔧 Free Tools Hub</h1>
+
+  <!-- Password Generator -->
+  <div class="tool-box">
+    <h2>🔐 Password Generator</h2>
+    <label for="length">Password Length:</label>
+    <input type="number" id="length" value="12" min="6" max="50">
+    <br>
+    <button onclick="generatePassword()">Generate</button>
+    <button onclick="copyPassword()">Copy</button>
+    <div class="password-box" id="password">Your password will appear here</div>
+  </div>
+
+  <!-- Text Case Converter -->
+  <div class="tool-box">
+    <h2>🔤 Text Case Converter</h2>
+    <textarea id="textInput" rows="4" placeholder="Type or paste your text here"></textarea>
+    <br>
+    <button onclick="convertText('upper')">UPPERCASE</button>
+    <button onclick="convertText('lower')">lowercase</button>
+    <button onclick="convertText('capital')">Capitalized</button>
+    <div class="result-box" id="textResult">Converted text will appear here</div>
+  </div>
+
+  <!-- QR Code Generator -->
+  <div class="tool-box">
+    <h2>📱 QR Code Generator</h2>
+    <input type="text" id="qrText" placeholder="Enter text or URL">
+    <br>
+    <button onclick="generateQR()">Generate QR</button>
+    <br>
+    <canvas id="qrCanvas"></canvas>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <script>
+    // Password Generator
+    function generatePassword() {
+      const length = document.getElementById("length").value;
+      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[]{}|;:,.<>?";
+      let password = "";
+      for (let i = 0; i < length; i++) {
+        password += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      document.getElementById("password").innerText = password;
+    }
+
+    function copyPassword() {
+      const passwordText = document.getElementById("password").innerText;
+      if (passwordText && passwordText !== "Your password will appear here") {
+        navigator.clipboard.writeText(passwordText);
+        alert("Password copied to clipboard!");
+      } else {
+        alert("Generate a password first!");
+      }
+    }
+
+    // Text Converter
+    function convertText(type) {
+      const text = document.getElementById("textInput").value;
+      let result = "";
+      if (type === "upper") {
+        result = text.toUpperCase();
+      } else if (type === "lower") {
+        result = text.toLowerCase();
+      } else if (type === "capital") {
+        result = text.replace(/\b\w/g, char => char.toUpperCase());
+      }
+      document.getElementById("textResult").innerText = result || "Converted text will appear here";
+    }
+
+    // QR Code Generator
+    function generateQR() {
+      const qrText = document.getElementById("qrText").value;
+      const canvas = document.getElementById("qrCanvas");
+      if (qrText.trim() === "") {
+        alert("Please enter some text or URL");
+        return;
+      }
+      QRCode.toCanvas(canvas, qrText, function (error) {
+        if (error) console.error(error);
+      });
+    }
+  </script>
+</body>
+</html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
