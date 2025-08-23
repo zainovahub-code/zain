@@ -3,6 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🔧 Free Tools Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      color: #333;
+    }
+    .tool-box {
+      background: #fff;
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 10px;
+      max-width: 400px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .password-box {
+      margin: 20px 0;
+      padding: 12px;
+      background: #eee;
+      border-radius: 6px;
+      font-size: 18px;
+      word-break: break-all;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 6px;
+      background: #4CAF50;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔧 Free Tools Website</h1>
+  <p>Use free online tools anytime!</p>
+
+  <div class="tool-box">
+    <h2>🔑 Password Generator</h2>
+    <p>Click the button below to generate a random password.</p>
+    <button onclick="generatePassword()">Generate Password</button>
+    <button onclick="copyPassword()">Copy</button>
+    <div class="password-box" id="password">Your password will appear here</div>
+  </div>
+
+  <script>
+    function generatePassword() {
+      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[]{}|;:,.<>?";
+      let password = "";
+      for (let i = 0; i < 12; i++) {
+        password += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      document.getElementById("password").innerText = password;
+    }
+
+    function copyPassword() {
+      const passwordText = document.getElementById("password").innerText;
+      navigator.clipboard.writeText(passwordText);
+      alert("Password copied to clipboard!");
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Password Generator</title>
   <style>
     body {
