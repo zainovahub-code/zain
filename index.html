@@ -1,520 +1,84 @@
-<!DOCTYPE html><!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🔧 Free Tools Hub</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f3f4f6;
-      text-align: center;
-      padding: 20px;
-    }
-    h1 {
-      color: #222;
-      margin-bottom: 30px;
-    }
-    .tool-box {
-      background: #fff;
-      padding: 20px;
-      margin: 20px auto;
-      border-radius: 12px;
-      max-width: 500px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    label {
-      font-weight: bold;
-    }
-    input, textarea {
-      width: 80%;
-      padding: 8px;
-      margin: 10px 0;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-    .password-box, .result-box {
-      margin: 15px 0;
-      padding: 12px;
-      background: #eee;
-      border-radius: 6px;
-      font-size: 16px;
-      word-break: break-word;
-    }
-    button {
-      padding: 8px 15px;
-      margin: 5px;
-      border: none;
-      border-radius: 6px;
-      background: #4CAF50;
-      color: #fff;
-      font-size: 15px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #45a049;
-    }
-    canvas {
-      margin-top: 15px;
-    }
+    body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
+    section { border: 1px solid #ddd; padding: 20px; margin: 20px auto; width: 300px; border-radius: 10px; }
+    input, textarea, button { margin: 5px; padding: 8px; width: 90%; }
+    button { cursor: pointer; }
+    h1 { color: #007acc; }
   </style>
 </head>
 <body>
   <h1>🔧 Free Tools Hub</h1>
 
   <!-- Password Generator -->
-  <div class="tool-box">
+  <section>
     <h2>🔐 Password Generator</h2>
-    <label for="length">Password Length:</label>
-    <input type="number" id="length" value="12" min="6" max="50">
-    <br>
+    <label>Password Length:</label>
+    <input type="number" id="length" value="12" min="4" max="50">
     <button onclick="generatePassword()">Generate</button>
     <button onclick="copyPassword()">Copy</button>
-    <div class="password-box" id="password">Your password will appear here</div>
-  </div>
+    <p id="password">Your password will appear here</p>
+  </section>
 
   <!-- Text Case Converter -->
-  <div class="tool-box">
+  <section>
     <h2>🔤 Text Case Converter</h2>
     <textarea id="textInput" rows="4" placeholder="Type or paste your text here"></textarea>
-    <br>
-    <button onclick="convertText('upper')">UPPERCASE</button>
-    <button onclick="convertText('lower')">lowercase</button>
-    <button onclick="convertText('capital')">Capitalized</button>
-    <div class="result-box" id="textResult">Converted text will appear here</div>
-  </div>
+    <button onclick="convertCase('upper')">UPPERCASE</button>
+    <button onclick="convertCase('lower')">lowercase</button>
+    <button onclick="convertCase('capitalized')">Capitalized</button>
+    <p id="convertedText">Converted text will appear here</p>
+  </section>
 
   <!-- QR Code Generator -->
-  <div class="tool-box">
+  <section>
     <h2>📱 QR Code Generator</h2>
-    <input type="text" id="qrText" placeholder="Enter text or URL">
-    <br>
+    <input type="text" id="qrInput" placeholder="Enter text or URL">
     <button onclick="generateQR()">Generate QR</button>
-    <br>
-    <canvas id="qrCanvas"></canvas>
-  </div>
+    <div id="qrCode"></div>
+  </section>
 
   <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
   <script>
     // Password Generator
     function generatePassword() {
-      const length = document.getElementById("length").value;
-      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[]{}|;:,.<>?";
+      const length = document.getElementById('length').value;
+      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
       let password = "";
       for (let i = 0; i < length; i++) {
         password += chars.charAt(Math.floor(Math.random() * chars.length));
       }
-      document.getElementById("password").innerText = password;
+      document.getElementById('password').innerText = password;
     }
-
     function copyPassword() {
-      const passwordText = document.getElementById("password").innerText;
-      if (passwordText && passwordText !== "Your password will appear here") {
-        navigator.clipboard.writeText(passwordText);
-        alert("Password copied to clipboard!");
-      } else {
-        alert("Generate a password first!");
-      }
+      const password = document.getElementById('password').innerText;
+      navigator.clipboard.writeText(password);
+      alert("Password copied!");
     }
 
-    // Text Converter
-    function convertText(type) {
-      const text = document.getElementById("textInput").value;
-      let result = "";
-      if (type === "upper") {
-        result = text.toUpperCase();
-      } else if (type === "lower") {
-        result = text.toLowerCase();
-      } else if (type === "capital") {
-        result = text.replace(/\b\w/g, char => char.toUpperCase());
+    // Text Case Converter
+    function convertCase(type) {
+      let text = document.getElementById('textInput').value;
+      if (type === 'upper') text = text.toUpperCase();
+      if (type === 'lower') text = text.toLowerCase();
+      if (type === 'capitalized') {
+        text = text.replace(/\b\w/g, char => char.toUpperCase());
       }
-      document.getElementById("textResult").innerText = result || "Converted text will appear here";
+      document.getElementById('convertedText').innerText = text;
     }
 
     // QR Code Generator
     function generateQR() {
-      const qrText = document.getElementById("qrText").value;
-      const canvas = document.getElementById("qrCanvas");
-      if (qrText.trim() === "") {
-        alert("Please enter some text or URL");
-        return;
-      }
-      QRCode.toCanvas(canvas, qrText, function (error) {
-        if (error) console.error(error);
+      const qrText = document.getElementById('qrInput').value;
+      document.getElementById('qrCode').innerHTML = "";
+      QRCode.toCanvas(document.createElement("canvas"), qrText, (err, canvas) => {
+        if (!err) document.getElementById('qrCode').appendChild(canvas);
       });
-    }
-  </script>
-</body>
-</html>
-
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🔧 Free Tools Hub</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f3f4f6;
-      text-align: center;
-      padding: 20px;
-    }
-    h1 {
-      color: #222;
-      margin-bottom: 30px;
-    }
-    .tool-box {
-      background: #fff;
-      padding: 20px;
-      margin: 20px auto;
-      border-radius: 12px;
-      max-width: 500px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    label {
-      font-weight: bold;
-    }
-    input, textarea {
-      width: 80%;
-      padding: 8px;
-      margin: 10px 0;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-    .password-box, .result-box {
-      margin: 15px 0;
-      padding: 12px;
-      background: #eee;
-      border-radius: 6px;
-      font-size: 16px;
-      word-break: break-word;
-    }
-    button {
-      padding: 8px 15px;
-      margin: 5px;
-      border: none;
-      border-radius: 6px;
-      background: #4CAF50;
-      color: #fff;
-      font-size: 15px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #45a049;
-    }
-    canvas {
-      margin-top: 15px;
-    }
-  </style>
-</head>
-<body>
-  <h1>🔧 Free Tools Hub</h1>
-
-  <!-- Password Generator -->
-  <div class="tool-box">
-    <h2>🔐 Password Generator</h2>
-    <label for="length">Password Length:</label>
-    <input type="number" id="length" value="12" min="6" max="50">
-    <br>
-    <button onclick="generatePassword()">Generate</button>
-    <button onclick="copyPassword()">Copy</button>
-    <div class="password-box" id="password">Your password will appear here</div>
-  </div>
-
-  <!-- Text Case Converter -->
-  <div class="tool-box">
-    <h2>🔤 Text Case Converter</h2>
-    <textarea id="textInput" rows="4" placeholder="Type or paste your text here"></textarea>
-    <br>
-    <button onclick="convertText('upper')">UPPERCASE</button>
-    <button onclick="convertText('lower')">lowercase</button>
-    <button onclick="convertText('capital')">Capitalized</button>
-    <div class="result-box" id="textResult">Converted text will appear here</div>
-  </div>
-
-  <!-- QR Code Generator -->
-  <div class="tool-box">
-    <h2>📱 QR Code Generator</h2>
-    <input type="text" id="qrText" placeholder="Enter text or URL">
-    <br>
-    <button onclick="generateQR()">Generate QR</button>
-    <br>
-    <canvas id="qrCanvas"></canvas>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
-  <script>
-    // Password Generator
-    function generatePassword() {
-      const length = document.getElementById("length").value;
-      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[]{}|;:,.<>?";
-      let password = "";
-      for (let i = 0; i < length; i++) {
-        password += chars.charAt(Math.floor(Math.random() * chars.length));
-      }
-      document.getElementById("password").innerText = password;
-    }
-
-    function copyPassword() {
-      const passwordText = document.getElementById("password").innerText;
-      if (passwordText && passwordText !== "Your password will appear here") {
-        navigator.clipboard.writeText(passwordText);
-        alert("Password copied to clipboard!");
-      } else {
-        alert("Generate a password first!");
-      }
-    }
-
-    // Text Converter
-    function convertText(type) {
-      const text = document.getElementById("textInput").value;
-      let result = "";
-      if (type === "upper") {
-        result = text.toUpperCase();
-      } else if (type === "lower") {
-        result = text.toLowerCase();
-      } else if (type === "capital") {
-        result = text.replace(/\b\w/g, char => char.toUpperCase());
-      }
-      document.getElementById("textResult").innerText = result || "Converted text will appear here";
-    }
-
-    // QR Code Generator
-    function generateQR() {
-      const qrText = document.getElementById("qrText").value;
-      const canvas = document.getElementById("qrCanvas");
-      if (qrText.trim() === "") {
-        alert("Please enter some text or URL");
-        return;
-      }
-      QRCode.toCanvas(canvas, qrText, function (error) {
-        if (error) console.error(error);
-      });
-    }
-  </script>
-</body>
-</html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🔧 Free Tools Website</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f3f4f6;
-      text-align: center;
-      padding: 40px;
-    }
-    h1 {
-      color: #333;
-    }
-    .tool-box {
-      background: #fff;
-      padding: 20px;
-      margin: 20px auto;
-      border-radius: 10px;
-      max-width: 400px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    .password-box {
-      margin: 20px 0;
-      padding: 12px;
-      background: #eee;
-      border-radius: 6px;
-      font-size: 18px;
-      word-break: break-all;
-    }
-    button {
-      padding: 10px 20px;
-      margin: 5px;
-      border: none;
-      border-radius: 6px;
-      background: #4CAF50;
-      color: #fff;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #45a049;
-    }
-  </style>
-</head>
-<body>
-  <h1>🔧 Free Tools Website</h1>
-  <p>Use free online tools anytime!</p>
-
-  <div class="tool-box">
-    <h2>🔑 Password Generator</h2>
-    <p>Click the button below to generate a random password.</p>
-    <button onclick="generatePassword()">Generate Password</button>
-    <button onclick="copyPassword()">Copy</button>
-    <div class="password-box" id="password">Your password will appear here</div>
-  </div>
-
-  <script>
-    function generatePassword() {
-      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[]{}|;:,.<>?";
-      let password = "";
-      for (let i = 0; i < 12; i++) {
-        password += chars.charAt(Math.floor(Math.random() * chars.length));
-      }
-      document.getElementById("password").innerText = password;
-    }
-
-    function copyPassword() {
-      const passwordText = document.getElementById("password").innerText;
-      navigator.clipboard.writeText(passwordText);
-      alert("Password copied to clipboard!");
-    }
-  </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Password Generator</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: #fff;
-      text-align: center;
-      padding: 50px;
-    }
-    .container {
-      background: rgba(0, 0, 0, 0.3);
-      padding: 30px;
-      border-radius: 12px;
-      max-width: 400px;
-      margin: auto;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-    }
-    input[type="number"] {
-      padding: 8px;
-      border-radius: 6px;
-      border: none;
-      width: 60px;
-      text-align: center;
-    }
-    button {
-      padding: 10px 20px;
-      margin: 10px;
-      border: none;
-      border-radius: 6px;
-      background: #ff9800;
-      color: #fff;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #e68900;
-    }
-    .password-box {
-      margin: 20px 0;
-      padding: 10px;
-      background: #222;
-      border-radius: 6px;
-      font-size: 18px;
-      word-break: break-all;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>🔐 Password Generator</h1>
-    <label for="length">Password Length: </label>
-    <input type="number" id="length" min="4" max="50" value="12"><br><br>
-    <button onclick="generatePassword()">Generate</button>
-    <button onclick="copyPassword()">Copy</button>
-    <div class="password-box" id="password">Your password will appear here</div>
-  </div>
-
-  <script>
-    function generatePassword() {
-      const length = document.getElementById("length").value;
-      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[]{}|;:,.<>?";
-      let password = "";
-      for (let i = 0; i < length; i++) {
-        password += chars.charAt(Math.floor(Math.random() * chars.length));
-      }
-      document.getElemen
-index.html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Free Tools Website</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-      background: #f4f4f9;
-    }
-    header {
-      background: #222;
-      color: #fff;
-      padding: 15px;
-    }
-    h1 {
-      margin: 0;
-    }
-    .container {
-      margin: 30px auto;
-      width: 90%;
-      max-width: 600px;
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
-    }
-    button {
-      background: #007bff;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #0056b3;
-    }
-    input {
-      width: 80%;
-      padding: 10px;
-      margin-top: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>🔧 Free Tools Website</h1>
-    <p>Use free online tools anytime!</p>
-  </header>
-
-  <div class="container">
-    <h2>🔑 Password Generator</h2>
-    <p>Click the button below to generate a random password.</p>
-    <input type="text" id="password" readonly>
-    <br><br>
-    <button onclick="generatePassword()">Generate Password</button>
-  </div>
-
-  <script>
-    function generatePassword() {
-      const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
-      let password = "";
-      for (let i = 0; i < 12; i++) {
-        password += chars.charAt(Math.floor(Math.random() * chars.length));
-      }
-      document.getElementById("password").value = password;
     }
   </script>
 </body>
