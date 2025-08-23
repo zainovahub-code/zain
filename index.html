@@ -5,37 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>🎨 Free Tools Hub</title>
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background: linear-gradient(120deg, #89f7fe, #66a6ff);
-        padding: 20px;
-        margin: 0;
-    }
-    h1 { text-align: center; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
-    .tool {
-        background: #fff; padding: 25px; margin: 20px auto; max-width: 500px;
-        border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); transition: transform 0.3s;
-    }
-    .tool:hover { transform: translateY(-5px); }
-    h2 { color: #333; text-align: center; }
-    input, button, textarea {
-        width: 100%; padding: 12px; margin: 10px 0; font-size: 16px; border-radius: 8px; border: 1px solid #ccc; box-sizing: border-box;
-    }
-    button {
-        cursor: pointer; background: linear-gradient(to right, #ff416c, #ff4b2b); color: white; border: none; font-weight: bold; transition: background 0.3s;
-    }
-    button:hover { background: linear-gradient(to right, #ff4b2b, #ff416c); }
-    #qrCode img { width: 200px; height: 200px; display: block; margin: 15px auto; border: 5px solid #ff4b2b; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+body { font-family: Arial, sans-serif; background: linear-gradient(120deg, #89f7fe, #66a6ff); padding: 20px; margin: 0; }
+h1 { text-align: center; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+.tool { background: #fff; padding: 25px; margin: 20px auto; max-width: 500px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); transition: transform 0.3s; }
+.tool:hover { transform: translateY(-5px); }
+h2 { color: #333; text-align: center; }
+p { font-size: 14px; color: #555; line-height: 1.5; }
+input, button, textarea { width: 100%; padding: 12px; margin: 10px 0; font-size: 16px; border-radius: 8px; border: 1px solid #ccc; box-sizing: border-box; }
+button { cursor: pointer; background: linear-gradient(to right, #ff416c, #ff4b2b); color: white; border: none; font-weight: bold; transition: background 0.3s; }
+button:hover { background: linear-gradient(to right, #ff4b2b, #ff416c); }
+#qrCode img { width: 200px; height: 200px; display: block; margin: 15px auto; border: 5px solid #ff4b2b; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+footer { text-align: center; color: #fff; margin-top: 40px; font-size: 13px; }
+a { color: #ffdd57; text-decoration: none; }
 </style>
 </head>
 <body>
 
 <h1>🎨 Free Tools Hub</h1>
 
-
 <!-- Password Generator -->
-<div class="tool">   <p><strong>Password Generator</strong> is a free online tool to create strong and secure passwords. Use it for websites, apps, and accounts. Tips: Use 12+ characters, mix letters, numbers & symbols, never reuse passwords. Perfect for <strong>free password generator</strong>, <strong>strong passwords online</strong>, and <strong>secure password tool</strong>.</p>
-
+<div class="tool">
+    <p><strong>Password Generator</strong> is a free online tool to create strong and secure passwords. Use it for websites, apps, and accounts. Tips: Use 12+ characters, mix letters, numbers & symbols, never reuse passwords. Perfect for <strong>free password generator</strong>, <strong>strong passwords online</strong>, and <strong>secure password tool</strong>.</p>
     <h2>🔐 Password Generator</h2>
     <label>Password Length:</label>
     <input type="number" id="pwdLength" value="12" min="4" max="64">
@@ -44,10 +34,9 @@
     <button onclick="copyPassword()">Copy Password</button>
 </div>
 
-
 <!-- Text Case Converter -->
-<div class="tool">  <p><strong>Text Case Converter</strong> quickly converts text to UPPERCASE, lowercase, or Capitalized Case. Ideal for content creation, writing, and editing. This <strong>free text case converter online</strong> helps save time and format text perfectly.</p>
-
+<div class="tool">
+    <p><strong>Text Case Converter</strong> quickly converts text to UPPERCASE, lowercase, or Capitalized Case. Ideal for content creation, writing, and editing. This <strong>free text case converter online</strong> helps save time and format text perfectly.</p>
     <h2>🔤 Text Case Converter</h2>
     <textarea id="textInput" rows="4" placeholder="Type or paste your text here"></textarea>
     <button onclick="convertCase('upper')">UPPERCASE</button>
@@ -57,16 +46,20 @@
     <button onclick="copyConvertedText()">Copy Text</button>
 </div>
 
-
 <!-- QR Code Generator -->
-<div class="tool">   <p><strong>QR Code Generator</strong> creates QR codes instantly for websites, links, and text. Scan on phone or share digitally. This <strong>free QR code generator online</strong> is fast, reliable, and easy to use.</p>
-
+<div class="tool">
+    <p><strong>QR Code Generator</strong> creates QR codes instantly for websites, links, and text. Scan on phone or share digitally. This <strong>free QR code generator online</strong> is fast, reliable, and easy to use.</p>
     <h2>📱 QR Code Generator</h2>
     <input type="text" id="qrInput" placeholder="Enter text or URL">
     <button onclick="generateQR()">Generate QR Code</button>
     <div id="qrCode"></div>
     <button onclick="downloadQR()">Download QR</button>
 </div>
+
+<!-- Footer -->
+<footer>
+    &copy; 2025 Free Tools Hub | <a href="#">About</a> | <a href="#">Privacy Policy</a> | <a href="#">Contact</a>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 <script>
