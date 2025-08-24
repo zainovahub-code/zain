@@ -1,129 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google Site Verification -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google Site Verification: keep this as-is for Search Console -->
   <meta name="google-site-verification" content="RY72Pgc7bI2rziUH6lWCDsdxmJcE55ZZrLWrpz0WLE3w" />
-  <title>😊 Free Tools Hub</title>
+
+  <title>😊 Free Tools Hub — Fast, Free Online Utilities</title>
+  <meta name="description" content="Free Tools Hub: password generator, text case converter, and QR code generator. Fast, mobile‑friendly, and free online tools." />
+  <meta name="keywords" content="free tools, online tools, password generator, strong password, text case converter, uppercase, lowercase, capitalize, qr code generator" />
+  <meta name="author" content="Free Tools Hub" />
+
+  <style>
+    :root{
+      --bg: #0b1220;           /* deep navy */
+      --card: #121a2b;         /* slightly lighter */
+      --text: #e8eefc;         /* near white */
+      --muted: #9fb2d4;        /* muted text */
+      --brand: #6ee7ff;        /* accent */
+      --brand-2:#a78bfa;       /* secondary accent */
+      --ok:#22c55e;            /* success */
+      --warn:#f59e0b;          /* warning */
+      --danger:#ef4444;        /* danger */
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(135deg,var(--bg),#0f172a 60%);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,Helvetica,sans-serif}
+    a{color:var(--brand)}
+    .container{max-width:1100px;margin:0 auto;padding:28px 18px 60px}
+
+    header{
+      display:flex;align-items:center;justify-content:space-between;gap:16px;
+      padding:18px 0 10px;border-bottom:1px solid rgba(255,255,255,.07);
+    }
+    .logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:22px}
+    .logo .emoji{font-size:26px}
+    .tag{background:rgba(110,231,255,.12);color:var(--brand);border:1px solid rgba(110,231,255,.25);padding:6px 10px;border-radius:999px;font-size:12px}
+
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:center;padding:28px 0}
+    .hero h1{margin:0 0 10px;font-size:36px;line-height:1.15}
+    .hero p{margin:0;color:var(--muted)}
+    .hero .card{background:linear-gradient(180deg,rgba(167,139,250,.15),rgba(167,139,250,0));border:1px solid rgba(167,139,250,.35)}
+
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:18px}
+    .card{grid-column:span 12;background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
+    .card h2{margin:0 0 8px;font-size:22px}
+    .card p.sub{margin:0 0 14px;color:var(--muted)}
+
+    .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+    input[type="text"], input[type="number"], textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:#0f172a;color:var(--text);outline:none}
+    textarea{min-height:120px}
+    .inline{display:flex;gap:10px;align-items:center}
+    .inline > *{flex:1}
+    .sm{font-size:12px;color:var(--muted)}
+
+    .btn{cursor:pointer;border:1px solid rgba(255,255,255,.1);background:linear-gradient(180deg,#1e293b,#111827);color:var(--text);padding:10px 14px;border-radius:12px;font-weight:600}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 12px 22px rgba(0,0,0,.25)}
+    .btn.brand{background:linear-gradient(135deg,var(--brand),var(--brand-2));border-color:transparent;color:#0b1220}
+    .badge{display:inline-flex;gap:8px;align-items:center;background:rgba(34,197,94,.12);color:var(--ok);border:1px solid rgba(34,197,94,.35);padding:6px 10px;border-radius:10px;font-size:12px}
+
+    .options{display:flex;flex-wrap:wrap;gap:10px}
+    .opt{display:flex;gap:8px;align-items:center;padding:8px 10px;background:#0f172a;border:1px solid rgba(255,255,255,.08);border-radius:12px}
+
+    footer{margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);color:var(--muted);font-size:14px}
+
+    @media (min-width: 720px){
+      .card.span-8{grid-column:span 8}
+      .card.span-6{grid-column:span 6}
+      .card.span-4{grid-column:span 4}
+    }
+  </style>
 </head>
 <body>
-  <h1>Welcome to Free Tools Hub</h1>
-  <p>If you are seeing this page, Google can read the verification code ✅</p>
+  <div class="container">
+    <header>
+      <div class="logo"><span class="emoji">😊</span><span>Free Tools Hub</span></div>
+      <span class="tag">Fast • Free • No Signup</span>
+    </header>
 
-  <!-- Ab yaha apna original content add karo -->
-  <h2>🔧 Tools Section</h2>
-  <p>Password Generator, Free Tools aur aur features yaha add karo.</p>
+    <section class="hero">
+      <div>
+        <h1>Welcome to <strong>Free Tools Hub</strong></h1>
+        <p>Handy web tools you can use right in your browser. No accounts, no tracking, just useful utilities.</p>
+        <div style="margin-top:12px" class="badge" aria-live="polite">Google verification tag detected ✅</div>
+      </div>
+      <div class="card">
+        <h2>What’s inside?</h2>
+        <p class="sub">Password Generator • Text Case Converter • QR Code Generator</p>
+        <div class="row">
+          <button class="btn brand" onclick="document.getElementById('password').scrollIntoView({behavior:'smooth'})">Try Password Generator</button>
+        </div>
+      </div>
+    </section>
 
-</body>
-</html>
+    <!-- ================= PASSWORD GENERATOR ================= -->
+    <section id="password" class="grid">
+      <div class="card span-8">
+        <h2>🔐 Password Generator</h2>
+        <p class="sub">Create strong, secure passwords. Mix letters, numbers, and symbols. Copy with one click.</p>
 
+        <div class="row" style="margin-bottom:10px">
+          <label class="opt"><input type="checkbox" id="pg-upper" checked /> Uppercase</label>
+          <label class="opt"><input type="checkbox" id="pg-lower" checked /> Lowercase</label>
+          <label class="opt"><input type="checkbox" id="pg-num" checked /> Numbers</label>
+          <label class="opt"><input type="checkbox" id="pg-sym" /> Symbols</label>
+          <label class="opt">Length: <input style="width:90px" type="number" id="pg-len" min="6" max="64" value="12" /></label>
+        </div>
 
-<body>
+        <div class="inline" style="margin-bottom:10px">
+          <input type="text" id="pg-output" placeholder="Your password will appear here" readonly />
+          <button class="btn" id="pg-copy">Copy</button>
+        </div>
+        <div class="row">
+          <button class="btn brand" id="pg-generate">Generate Password</button>
+          <span class="sm" id="pg-strength">Strength: —</span>
+        </div>
+      </div>
 
-<h1>🎨 Free Tools Hub</h1>
+      <div class="card span-4">
+        <h3 style="margin:0 0 6px">Tips for strong passwords</h3>
+        <ul style="margin:0 0 0 16px;color:var(--muted)">
+          <li>Use 12–16+ characters</li>
+          <li>Include letters, numbers & symbols</li>
+          <li>Avoid common words or patterns</li>
+          <li>Use a different password for each site</li>
+        </ul>
+      </div>
+    </section>
 
-<!-- Password Generator -->
-<div class="tool">
-    <p><strong>Password Generator</strong> is a free online tool to create strong and secure passwords. Use it for websites, apps, and accounts. Tips: Use 12+ characters, mix letters, numbers & symbols, never reuse passwords. Perfect for <strong>free password generator</strong>, <strong>strong passwords online</strong>, and <strong>secure password tool</strong>.</p>
-    <h2>🔐 Password Generator</h2>
-    <label>Password Length:</label>
-    <input type="number" id="pwdLength" value="12" min="4" max="64">
-    <button onclick="generatePassword()">Generate Password</button>
-    <input type="text" id="password" readonly placeholder="Your password will appear here">
-    <button onclick="copyPassword()">Copy Password</button>
-</div>
+    <!-- ================= TEXT CASE CONVERTER ================= -->
+    <section id="textcase" class="grid">
+      <div class="card span-6">
+        <h2>📝 Text Case Converter</h2>
+        <p class="sub">Convert text to UPPERCASE, lowercase, Sentence case, or Capitalized Case.</p>
+        <textarea id="tc-input" placeholder="Type or paste your text here"></textarea>
+        <div class="row" style="margin-top:10px">
+          <button class="btn" data-case="upper">UPPERCASE</button>
+          <button class="btn" data-case="lower">lowercase</button>
+          <button class="btn" data-case="sentence">Sentence case</button>
+          <button class="btn" data-case="title">Capitalized</button>
+          <button class="btn" id="tc-trim">Trim spaces</button>
+        </div>
+      </div>
+      <div class="card span-6">
+        <h3 style="margin:0 0 8px">Converted Text</h3>
+        <textarea id="tc-output" placeholder="Converted text will appear here"></textarea>
+        <div class="row" style="margin-top:10px">
+          <button class="btn" id="tc-copy">Copy Text</button>
+        </div>
+      </div>
+    </section>
 
-<!-- Text Case Converter -->
-<div class="tool">
-    <p><strong>Text Case Converter</strong> quickly converts text to UPPERCASE, lowercase, or Capitalized Case. Ideal for content creation, writing, and editing. This <strong>free text case converter online</strong> helps save time and format text perfectly.</p>
-    <h2>🔤 Text Case Converter</h2>
-    <textarea id="textInput" rows="4" placeholder="Type or paste your text here"></textarea>
-    <button onclick="convertCase('upper')">UPPERCASE</button>
-    <button onclick="convertCase('lower')">lowercase</button>
-    <button onclick="convertCase('capital')">Capitalized</button>
-    <textarea id="textOutput" rows="4" placeholder="Converted text will appear here" readonly></textarea>
-    <button onclick="copyConvertedText()">Copy Text</button>
-</div>
+    <!-- ================= QR CODE GENERATOR ================= -->
+    <section id="qrcode" class="grid">
+      <div class="card span-6">
+        <h2>📦 QR Code Generator</h2>
+        <p class="sub">Create QR codes for links, Wi‑Fi names, or text. Download as PNG.</p>
+        <input type="text" id="qr-text" placeholder="Enter URL or any text" />
+        <div class="row" style="margin-top:10px">
+          <button class="btn brand" id="qr-make">Generate QR</button>
+          <button class="btn" id="qr-download">Download PNG</button>
+        </div>
+      </div>
+      <div class="card span-6" style="display:flex;align-items:center;justify-content:center;min-height:260px">
+        <div id="qr-container" aria-live="polite"></div>
+      </div>
+    </section>
 
-<!-- QR Code Generator -->
-<div class="tool">
-    <p><strong>QR Code Generator</strong> creates QR codes instantly for websites, links, and text. Scan on phone or share digitally. This <strong>free QR code generator online</strong> is fast, reliable, and easy to use.</p>
-    <h2>📱 QR Code Generator</h2>
-    <input type="text" id="qrInput" placeholder="Enter text or URL">
-    <button onclick="generateQR()">Generate QR Code</button>
-    <div id="qrCode"></div>
-    <button onclick="downloadQR()">Download QR</button>
-</div>
+    <footer>
+      <div>© <span id="year"></span> Free Tools Hub • Built for speed and privacy.</div>
+    </footer>
+  </div>
 
-<!-- Footer -->
-<footer>
-    &copy; 2025 Free Tools Hub | <a href="#">About</a> | <a href="#">Privacy Policy</a> | <a href="#">Contact</a>
-</footer>
+  <!-- Lightweight QRCode generator library (loads in the browser at runtime) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-H8bE4J0B2hQmQzq2P0wD0xQ3jQL7j0w6wQn5mYw8mIh6YVYyqG4p9s7l6q4Lw31Z7zU1gqk6KQ2lQGqv2TnG6Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
-<script>
-    // Password Generator
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // =============== Password Generator ===============
+    const rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+    const pick = (s) => s[rand(0, s.length - 1)];
     function generatePassword() {
-        const length = document.getElementById('pwdLength').value;
-        const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+";
-        let password = "";
-        for (let i = 0; i < length; i++) {
-            password += charset.charAt(Math.floor(Math.random() * charset.length));
-        }
-        document.getElementById('password').value = password;
-    }
-    function copyPassword() {
-        const pwd = document.getElementById('password');
-        pwd.select();
-        pwd.setSelectionRange(0, 99999);
-        document.execCommand('copy');
-        alert('Password copied!');
+      const sets = [];
+      const A = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      const a = 'abcdefghijklmnopqrstuvwxyz';
+      const n = '0123456789';
+      const s = '!@#$%^&*()-_=+[]{};:,.?/';
+      if (document.getElementById('pg-upper').checked) sets.push(A);
+      if (document.getElementById('pg-lower').checked) sets.push(a);
+      if (document.getElementById('pg-num').checked) sets.push(n);
+      if (document.getElementById('pg-sym').checked) sets.push(s);
+      const len = Math.min(64, Math.max(6, +document.getElementById('pg-len').value || 12));
+      if (!sets.length) { alert('Select at least one character type.'); return ''; }
+
+      // Ensure at least one char from each selected set
+      const chars = sets.map(set => pick(set));
+      const all = sets.join('');
+      while (chars.length < len) chars.push(pick(all));
+
+      // Shuffle
+      for (let i = chars.length - 1; i > 0; i--) {
+        const j = rand(0, i); [chars[i], chars[j]] = [chars[j], chars[i]];
+      }
+      const pwd = chars.join('');
+      document.getElementById('pg-output').value = pwd;
+      updateStrength(pwd);
+      return pwd;
     }
 
-    // Text Case Converter
-    function convertCase(type) {
-        let text = document.getElementById('textInput').value;
-        if(type === 'upper') text = text.toUpperCase();
-        else if(type === 'lower') text = text.toLowerCase();
-        else if(type === 'capital') text = text.replace(/\b\w/g, c => c.toUpperCase());
-        document.getElementById('textOutput').value = text;
-    }
-    function copyConvertedText() {
-        const output = document.getElementById('textOutput');
-        output.select();
-        output.setSelectionRange(0, 99999);
-        document.execCommand('copy');
-        alert('Text copied!');
+    function updateStrength(pwd){
+      let score = 0;
+      if (pwd.length >= 12) score++;
+      if (/[A-Z]/.test(pwd)) score++;
+      if (/[a-z]/.test(pwd)) score++;
+      if (/[0-9]/.test(pwd)) score++;
+      if (/[^A-Za-z0-9]/.test(pwd)) score++;
+      const labels = ['Very weak','Weak','Okay','Strong','Very strong'];
+      const idx = Math.min(labels.length-1, Math.max(0, score-1));
+      document.getElementById('pg-strength').textContent = 'Strength: ' + labels[idx];
     }
 
-    // QR Code Generator
-    function generateQR() {
-        const text = document.getElementById('qrInput').value;
-        const qrDiv = document.getElementById('qrCode');
-        qrDiv.innerHTML = "";
-        if(text) {
-            QRCode.toDataURL(text, { width: 200, margin: 2 }, function (err, url) {
-                if(err) console.error(err);
-                const img = document.createElement('img');
-                img.src = url;
-                qrDiv.appendChild(img);
-            });
-        }
-    }
-    function downloadQR() {
-        const qrImg = document.querySelector('#qrCode img');
-        if(qrImg){
-            const a = document.createElement('a');
-            a.href = qrImg.src;
-            a.download = 'qrcode.png';
-            a.click();
-        } else {
-            alert('Please generate QR code first.');
-        }
-    }
-</script>
+    document.getElementById('pg-generate').addEventListener('click', generatePassword);
+    document.getElementById('pg-copy').addEventListener('click', () => {
+      const out = document.getElementById('pg-output');
+      if (!out.value) generatePassword();
+      out.select(); document.execCommand('copy');
+    });
 
+    // =============== Text Case Converter ===============
+    const input = document.getElementById('tc-input');
+    const output = document.getElementById('tc-output');
+
+    function toTitleCase(str){
+      return str.replace(/\w\S*/g, w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase());
+    }
+    function toSentenceCase(str){
+      return str.toLowerCase().replace(/(^\s*[a-z])|([.!?]\s*[a-z])/g, s => s.toUpperCase());
+    }
+
+    document.querySelectorAll('[data-case]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const mode = btn.getAttribute('data-case');
+        const v = input.value;
+        output.value = mode === 'upper' ? v.toUpperCase()
+                      : mode === 'lower' ? v.toLowerCase()
+                      : mode === 'title' ? toTitleCase(v)
+                      : toSentenceCase(v);
+      });
+    });
+
+    document.getElementById('tc-trim').addEventListener('click', () => {
+      output.value = input.value.replace(/\s+/g,' ').trim();
+    });
+
+    document.getElementById('tc-copy').addEventListener('click', () => {
+      output.select(); document.execCommand('copy');
+    });
+
+    // =============== QR Code Generator ===============
+    let qr; const qrBox = document.getElementById('qr-container');
+    function makeQR(){
+      const txt = document.getElementById('qr-text').value.trim();
+      if (!txt){ alert('Enter some text or a URL first.'); return; }
+      qrBox.innerHTML = '';
+      qr = new QRCode(qrBox, { text: txt, width: 220, height: 220, correctLevel: QRCode.CorrectLevel.H });
+    }
+    document.getElementById('qr-make').addEventListener('click', makeQR);
+    document.getElementById('qr-download').addEventListener('click', () => {
+      if (!qr){ makeQR(); }
+      const img = qrBox.querySelector('img') || qrBox.querySelector('canvas');
+      if (!img) return;
+      const link = document.createElement('a');
+      link.download = 'qr-code.png';
+      link.href = img.src ? img.src : img.toDataURL('image/png');
+      link.click();
+    });
+
+    // Generate one strong password on load for UX
+    generatePassword();
+  </script>
 </body>
 </html>
 
