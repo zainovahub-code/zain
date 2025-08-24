@@ -1,0 +1,24 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><title>QR Code</title>
+<link rel="stylesheet" href="style.css"></head><body>
+<header>
+  <h1>Free Tools Hub</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+  </nav>
+</header>
+<div class="container">
+<h2>QR Code Generator</h2><div class="tool-box">
+<input type="text" id="qrInput" placeholder="Enter text or URL">
+<button onclick="generateQR()">Generate</button><br><canvas id="qrCanvas"></canvas>
+</div></div><footer><p>© 2025 Free Tools Hub. All Rights Reserved.</p></footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+<script>
+function generateQR(){
+ var qr=new QRious({element:document.getElementById('qrCanvas'),size:200});
+ qr.value=document.getElementById("qrInput").value;
+}
+</script></body></html>

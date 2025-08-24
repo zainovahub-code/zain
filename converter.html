@@ -1,0 +1,29 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Text Case Converter</title>
+<link rel="stylesheet" href="style.css"></head><body>
+<header>
+  <h1>Free Tools Hub</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+  </nav>
+</header>
+<div class="container">
+<h2>Text Case Converter</h2><div class="tool-box">
+<textarea id="textInput" placeholder="Enter text..."></textarea>
+<button onclick="convert('upper')">UPPERCASE</button>
+<button onclick="convert('lower')">lowercase</button>
+<button onclick="convert('capitalize')">Capitalize</button>
+<textarea id="textOutput" readonly></textarea>
+</div></div><footer><p>© 2025 Free Tools Hub. All Rights Reserved.</p></footer>
+<script>
+function convert(type){
+ let t=document.getElementById("textInput").value;
+ if(type==='upper')t=t.toUpperCase();
+ if(type==='lower')t=t.toLowerCase();
+ if(type==='capitalize')t=t.replace(/\b\w/g,c=>c.toUpperCase());
+ document.getElementById("textOutput").value=t;
+}
+</script></body></html>
