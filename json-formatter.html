@@ -1,0 +1,1 @@
+<html><head><title>JSON Formatter</title></head><body><h1>JSON Formatter</h1><textarea id='in'></textarea><pre id='out'></pre><button onclick='format()'>Format</button><script>function format(){try{out.textContent=JSON.stringify(JSON.parse(in.value),null,2);}catch(e){out.textContent='Invalid JSON';}}</script></body></html>

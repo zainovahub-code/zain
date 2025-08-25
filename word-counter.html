@@ -1,0 +1,1 @@
+<html><head><title>Word Counter</title></head><body><h1>Word Counter</h1><textarea id='txt'></textarea><p id='out'></p><script>txt.oninput=()=>{let w=txt.value.trim().split(/\s+/).filter(Boolean).length;out.textContent='Words: '+w;}</script></body></html>
