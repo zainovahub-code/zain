@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Text to Speech — Free Tools Hub</title>
+  <meta name="description" content="Convert text to speech in your browser." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://zainovahub-code.github.io/zain/" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="wrap">
+  <header class="site-head">
+    <div class="brand">
+      <img src="favicon.svg" alt="logo" />
+      <div>
+        <h1>Free Tools Hub</h1>
+        <p class="tag">Fast • Free • No sign‑up</p>
+      </div>
+    </div>
+    <nav class="topnav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </header>
+  <main class="content">
+
+<h2>Text to Speech</h2>
+<div class="tool-wrap">
+  <label>Text</label><textarea id="t" class="input" placeholder="Type something to speak..."></textarea>
+  <label>Voice</label><select id="v" class="input"></select>
+  <div class="actions"><button onclick="speak()">Speak</button> <button onclick="stopS()">Stop</button></div>
+</div>
+<script>
+const synth=window.speechSynthesis; let voices=[];
+function loadVoices(){ voices=synth.getVoices(); v.innerHTML = voices.map((x,i)=>`<option value='${i}'>${x.name} (${x.lang})</option>`).join(''); }
+loadVoices(); if(synth.onvoiceschanged!==undefined) synth.onvoiceschanged=loadVoices;
+function speak(){ const u=new SpeechSynthesisUtterance(t.value||'Hello'); const idx=+v.value||0; if(voices[idx]) u.voice=voices[idx]; synth.speak(u); }
+function stopS(){ synth.cancel(); }
+</script>
+
+  </main>
+  <footer class="site-foot">
+    <div class="links">
+      <a href="index.html">Home</a> ·
+      <a href="privacy.html">Privacy</a> ·
+      <a href="terms.html">Terms</a> ·
+      <a href="sitemap.xml">Sitemap</a>
+    </div>
+    <p>© Free Tools Hub • Built for speed • No tracking cookies.</p>
+  </footer>
+</div>
+</body>
+</html>

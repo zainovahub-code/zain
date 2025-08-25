@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YouTube Thumbnail Downloader — Free Tools Hub</title>
+  <meta name="description" content="Get HD thumbnails from a YouTube URL." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://zainovahub-code.github.io/zain/" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="wrap">
+  <header class="site-head">
+    <div class="brand">
+      <img src="favicon.svg" alt="logo" />
+      <div>
+        <h1>Free Tools Hub</h1>
+        <p class="tag">Fast • Free • No sign‑up</p>
+      </div>
+    </div>
+    <nav class="topnav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </header>
+  <main class="content">
+
+<h2>YouTube Thumbnail Downloader</h2>
+<div class="tool-wrap">
+  <label>YouTube URL</label><input id="yt" class="input" placeholder="https://www.youtube.com/watch?v=VIDEO_ID">
+  <div class="actions"><button onclick="showThumb()">Get Thumbnail</button></div>
+  <div id="thumb" class="card"></div>
+</div>
+<script>
+function getId(u){ try{
+  const url=new URL(u);
+  if(url.hostname.includes('youtu.be')) return url.pathname.slice(1);
+  if(url.searchParams.get('v')) return url.searchParams.get('v');
+  const m=u.match(/v=([\w-]{11})/); if(m) return m[1];
+  const m2=u.match(/youtu\.be\/([\w-]{11})/); if(m2) return m2[1];
+} catch(e){} return null;}
+function showThumb(){
+  const id=getId(document.getElementById('yt').value);
+  if(!id){ alert('Invalid YouTube URL'); return; }
+  const urls=[
+    `https://img.youtube.com/vi/${id}/maxresdefault.jpg`,
+    `https://img.youtube.com/vi/${id}/sddefault.jpg`,
+    `https://img.youtube.com/vi/${id}/hqdefault.jpg`,
+  ];
+  thumb.innerHTML = urls.map(u=>`<div style='margin:8px 0'><a href='${u}' target='_blank'>Open</a><br><img src='${u}' alt='thumb' style='max-width:100%;border-radius:12px'></div>`).join('');
+}
+</script>
+
+  </main>
+  <footer class="site-foot">
+    <div class="links">
+      <a href="index.html">Home</a> ·
+      <a href="privacy.html">Privacy</a> ·
+      <a href="terms.html">Terms</a> ·
+      <a href="sitemap.xml">Sitemap</a>
+    </div>
+    <p>© Free Tools Hub • Built for speed • No tracking cookies.</p>
+  </footer>
+</div>
+</body>
+</html>

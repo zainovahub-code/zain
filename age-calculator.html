@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Age Calculator — Free Tools Hub</title>
+  <meta name="description" content="Find exact age from DOB." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://zainovahub-code.github.io/zain/" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="wrap">
+  <header class="site-head">
+    <div class="brand">
+      <img src="favicon.svg" alt="logo" />
+      <div>
+        <h1>Free Tools Hub</h1>
+        <p class="tag">Fast • Free • No sign‑up</p>
+      </div>
+    </div>
+    <nav class="topnav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </header>
+  <main class="content">
+
+<h2>Age Calculator</h2>
+<div class="tool-wrap">
+  <label>Date of Birth</label><input id="dob" class="input" type="date">
+  <div class="actions"><button onclick="calcAge()">Calculate</button></div>
+  <div class="card"><b>Age:</b> <span id="age">0</span></div>
+</div>
+<script>
+function calcAge(){
+  const v=document.getElementById('dob').value; if(!v) return;
+  const d=new Date(v), now=new Date();
+  let years=now.getFullYear()-d.getFullYear();
+  const m=now.getMonth()-d.getMonth();
+  if(m<0 || (m===0 && now.getDate()<d.getDate())) years--;
+  document.getElementById('age').textContent = years + " years";
+}
+</script>
+
+  </main>
+  <footer class="site-foot">
+    <div class="links">
+      <a href="index.html">Home</a> ·
+      <a href="privacy.html">Privacy</a> ·
+      <a href="terms.html">Terms</a> ·
+      <a href="sitemap.xml">Sitemap</a>
+    </div>
+    <p>© Free Tools Hub • Built for speed • No tracking cookies.</p>
+  </footer>
+</div>
+</body>
+</html>

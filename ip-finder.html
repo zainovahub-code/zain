@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IP Finder — Free Tools Hub</title>
+  <meta name="description" content="See your public IP address." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://zainovahub-code.github.io/zain/" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="wrap">
+  <header class="site-head">
+    <div class="brand">
+      <img src="favicon.svg" alt="logo" />
+      <div>
+        <h1>Free Tools Hub</h1>
+        <p class="tag">Fast • Free • No sign‑up</p>
+      </div>
+    </div>
+    <nav class="topnav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </header>
+  <main class="content">
+
+<h2>Your IP Address</h2>
+<div class="tool-wrap">
+  <div class="card"><b>IP:</b> <span id="ip">Loading…</span></div>
+  <small class="muted">Fetched using a public service (api.ipify.org).</small>
+</div>
+<script>
+fetch('https://api.ipify.org?format=json').then(r=>r.json()).then(j=>ip.textContent=j.ip).catch(_=>ip.textContent='Error');
+</script>
+
+  </main>
+  <footer class="site-foot">
+    <div class="links">
+      <a href="index.html">Home</a> ·
+      <a href="privacy.html">Privacy</a> ·
+      <a href="terms.html">Terms</a> ·
+      <a href="sitemap.xml">Sitemap</a>
+    </div>
+    <p>© Free Tools Hub • Built for speed • No tracking cookies.</p>
+  </footer>
+</div>
+</body>
+</html>
