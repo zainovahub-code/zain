@@ -1,1 +1,54 @@
-<html><head><title>JSON Formatter</title></head><body><h1>JSON Formatter</h1><textarea id='in'></textarea><pre id='out'></pre><button onclick='format()'>Format</button><script>function format(){try{out.textContent=JSON.stringify(JSON.parse(in.value),null,2);}catch(e){out.textContent='Invalid JSON';}}</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JSON Formatter — Free Tools Hub</title>
+  <meta name="description" content="Beautify & validate JSON online." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://zainovahub-code.github.io/zain/" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="wrap">
+  <header class="site-head">
+    <div class="brand">
+      <img src="favicon.svg" alt="logo" />
+      <div>
+        <h1>Free Tools Hub</h1>
+        <p class="tag">Fast • Free • No sign‑up</p>
+      </div>
+    </div>
+    <nav class="topnav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </header>
+  <main class="content">
+
+<h2>JSON Formatter</h2>
+<div class="tool-wrap">
+  <textarea id="input" class="input" placeholder='{"hello":"world"}'></textarea>
+  <div class="actions"><button onclick="fmt()">Format</button></div>
+  <pre class="card" id="out" style="white-space:pre-wrap"></pre>
+</div>
+<script>
+function fmt(){ try{ out.textContent = JSON.stringify(JSON.parse(input.value), null, 2); } catch(e){ out.textContent = "Invalid JSON"; } }
+</script>
+
+  </main>
+  <footer class="site-foot">
+    <div class="links">
+      <a href="index.html">Home</a> ·
+      <a href="privacy.html">Privacy</a> ·
+      <a href="terms.html">Terms</a> ·
+      <a href="sitemap.xml">Sitemap</a>
+    </div>
+    <p>© Free Tools Hub • Built for speed • No tracking cookies.</p>
+  </footer>
+</div>
+</body>
+</html>

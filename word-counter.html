@@ -1,1 +1,63 @@
-<html><head><title>Word Counter</title></head><body><h1>Word Counter</h1><textarea id='txt'></textarea><p id='out'></p><script>txt.oninput=()=>{let w=txt.value.trim().split(/\s+/).filter(Boolean).length;out.textContent='Words: '+w;}</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Word Counter — Free Tools Hub</title>
+  <meta name="description" content="Count words, characters and lines." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://zainovahub-code.github.io/zain/" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="wrap">
+  <header class="site-head">
+    <div class="brand">
+      <img src="favicon.svg" alt="logo" />
+      <div>
+        <h1>Free Tools Hub</h1>
+        <p class="tag">Fast • Free • No sign‑up</p>
+      </div>
+    </div>
+    <nav class="topnav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </header>
+  <main class="content">
+
+<h2>Word Counter</h2>
+<div class="tool-wrap">
+  <textarea id="area" class="input" placeholder="Start typing or paste text..."></textarea>
+  <div class="card">
+    <b>Words:</b> <span id="w">0</span> &nbsp;•&nbsp;
+    <b>Characters:</b> <span id="c">0</span> &nbsp;•&nbsp;
+    <b>Lines:</b> <span id="l">0</span>
+  </div>
+</div>
+<script>
+const a=document.getElementById('area');const w=document.getElementById('w');const c=document.getElementById('c');const l=document.getElementById('l');
+a.addEventListener('input',()=>{
+  const txt=a.value;
+  w.textContent = (txt.trim().match(/\S+/g)||[]).length;
+  c.textContent = txt.length;
+  l.textContent = txt.split(/\n/).length;
+});
+</script>
+
+  </main>
+  <footer class="site-foot">
+    <div class="links">
+      <a href="index.html">Home</a> ·
+      <a href="privacy.html">Privacy</a> ·
+      <a href="terms.html">Terms</a> ·
+      <a href="sitemap.xml">Sitemap</a>
+    </div>
+    <p>© Free Tools Hub • Built for speed • No tracking cookies.</p>
+  </footer>
+</div>
+</body>
+</html>

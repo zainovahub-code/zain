@@ -1,1 +1,62 @@
-<html><head><title>Unit Converter</title></head><body><h1>Unit Converter</h1><input id='m'> meters = <span id='cm'></span> cm<script>m.oninput=()=>cm.textContent=m.value*100</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unit Converter — Free Tools Hub</title>
+  <meta name="description" content="Convert length, weight and temperature." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://zainovahub-code.github.io/zain/" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="wrap">
+  <header class="site-head">
+    <div class="brand">
+      <img src="favicon.svg" alt="logo" />
+      <div>
+        <h1>Free Tools Hub</h1>
+        <p class="tag">Fast • Free • No sign‑up</p>
+      </div>
+    </div>
+    <nav class="topnav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </header>
+  <main class="content">
+
+<h2>Unit Converter</h2>
+<div class="tool-wrap">
+  <label>Meters → Centimeters</label>
+  <input id="m" class="input" type="number" placeholder="e.g., 2"> 
+  <div class="card"><b>Result:</b> <span id="cm">0</span> cm</div>
+  <label>kg → lb</label>
+  <input id="kg" class="input" type="number" placeholder="e.g., 5">
+  <div class="card"><b>Result:</b> <span id="lb">0</span> lb</div>
+  <label>Celsius → Fahrenheit</label>
+  <input id="c1" class="input" type="number" placeholder="e.g., 20">
+  <div class="card"><b>Result:</b> <span id="f1">0</span> °F</div>
+</div>
+<script>
+m.oninput=()=>cm.textContent=(+m.value||0)*100;
+kg.oninput=()=>lb.textContent=((+kg.value||0)*2.20462).toFixed(3);
+c1.oninput=()=>f1.textContent=(((+c1.value||0)*9/5)+32).toFixed(2);
+</script>
+
+  </main>
+  <footer class="site-foot">
+    <div class="links">
+      <a href="index.html">Home</a> ·
+      <a href="privacy.html">Privacy</a> ·
+      <a href="terms.html">Terms</a> ·
+      <a href="sitemap.xml">Sitemap</a>
+    </div>
+    <p>© Free Tools Hub • Built for speed • No tracking cookies.</p>
+  </footer>
+</div>
+</body>
+</html>

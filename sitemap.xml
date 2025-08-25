@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://zainovahub-code.github.io/zain/</loc></url>
-<url><loc>https://zainovahub-code.github.io/zain/password.html</loc></url>
-<url><loc>https://zainovahub-code.github.io/zain/converter.html</loc></url>
-<url><loc>https://zainovahub-code.github.io/zain/qr.html</loc></url>
-<url><loc>https://zainovahub-code.github.io/zain/word-counter.html</loc></url>
-<url><loc>https://zainovahub-code.github.io/zain/image-compressor.html</loc></url>
-<url><loc>https://zainovahub-code.github.io/zain/unit-converter.html</loc></url>
-<url><loc>https://zainovahub-code.github.io/zain/json-formatter.html</loc></url>
-<url><loc>https://zainovahub-code.github.io/zain/url-tools.html</loc></url>
-<url><loc>https://zainovahub-code.github.io/zain/color-picker.html</loc></url>
-<url><loc>https://zainovahub-code.github.io/zain/calculator.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/password.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/converter.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/qr.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/word-counter.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/image-compressor.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/unit-converter.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/json-formatter.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/url-tools.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/color-picker.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/calculator.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/about.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/contact.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/privacy.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/terms.html</loc></url>
 </urlset>

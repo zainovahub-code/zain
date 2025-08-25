@@ -1,1 +1,61 @@
-<html><head><title>QR Generator</title><script src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js'></script></head><body><h1>QR Code Generator</h1><input id='text'><button onclick='makeQR()'>Generate</button><div id='qrcode'></div><script>function makeQR(){document.getElementById('qrcode').innerHTML='';new QRCode(document.getElementById('qrcode'), document.getElementById('text').value);}</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QR Code Generator — Free Tools Hub</title>
+  <meta name="description" content="Create QR codes for links and text." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://zainovahub-code.github.io/zain/" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="wrap">
+  <header class="site-head">
+    <div class="brand">
+      <img src="favicon.svg" alt="logo" />
+      <div>
+        <h1>Free Tools Hub</h1>
+        <p class="tag">Fast • Free • No sign‑up</p>
+      </div>
+    </div>
+    <nav class="topnav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </header>
+  <main class="content">
+
+<h2>QR Code Generator</h2>
+<div class="tool-wrap">
+  <label>Text or URL</label>
+  <input id="q" class="input" placeholder="https://example.com">
+  <div id="qrbox" class="card" style="display:inline-block;padding:12px;"></div>
+  <div class="actions"><button onclick="make()">Generate</button></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+let qr;
+function make(){
+  const el = document.getElementById('qrbox');
+  el.innerHTML="";
+  qr = new QRCode(el, {text: document.getElementById('q').value || "Hello", width: 200, height:200});
+}
+</script>
+
+  </main>
+  <footer class="site-foot">
+    <div class="links">
+      <a href="index.html">Home</a> ·
+      <a href="privacy.html">Privacy</a> ·
+      <a href="terms.html">Terms</a> ·
+      <a href="sitemap.xml">Sitemap</a>
+    </div>
+    <p>© Free Tools Hub • Built for speed • No tracking cookies.</p>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,1 +1,61 @@
-<html><head><title>Text Case Converter</title></head><body><h1>Text Converter</h1><textarea id='txt'></textarea><br><button onclick="txt.value=txt.value.toUpperCase()">UPPER</button><button onclick="txt.value=txt.value.toLowerCase()">lower</button><script>let txt=document.getElementById('txt')</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Text Case Converter — Free Tools Hub</title>
+  <meta name="description" content="Convert text to UPPERCASE, lowercase and Title Case." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://zainovahub-code.github.io/zain/" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="wrap">
+  <header class="site-head">
+    <div class="brand">
+      <img src="favicon.svg" alt="logo" />
+      <div>
+        <h1>Free Tools Hub</h1>
+        <p class="tag">Fast • Free • No sign‑up</p>
+      </div>
+    </div>
+    <nav class="topnav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </header>
+  <main class="content">
+
+<h2>Text Case Converter</h2>
+<div class="tool-wrap">
+  <label>Text</label>
+  <textarea id="txt" class="input" placeholder="Paste your text here..."></textarea>
+  <div class="actions">
+    <button onclick="upper()">UPPERCASE</button>
+    <button onclick="lower()">lowercase</button>
+    <button onclick="title()">Title Case</button>
+  </div>
+</div>
+<script>
+const t = document.getElementById('txt');
+function upper(){ t.value = t.value.toUpperCase(); }
+function lower(){ t.value = t.value.toLowerCase(); }
+function title(){ t.value = t.value.toLowerCase().replace(/\b\w/g, s=>s.toUpperCase()); }
+</script>
+
+  </main>
+  <footer class="site-foot">
+    <div class="links">
+      <a href="index.html">Home</a> ·
+      <a href="privacy.html">Privacy</a> ·
+      <a href="terms.html">Terms</a> ·
+      <a href="sitemap.xml">Sitemap</a>
+    </div>
+    <p>© Free Tools Hub • Built for speed • No tracking cookies.</p>
+  </footer>
+</div>
+</body>
+</html>
