@@ -4,49 +4,137 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zain Tools - Free Online Tools</title>
-  <meta name="description" content="Free online tools: password generator, QR code generator, converters, BMI calculator, IP finder, JSON formatter, text-to-speech, and more.">
-  <meta name="author" content="Zain Tools">
+  <meta name="description" content="Zain Tools: Free online utilities like password generator, QR code generator, converters, BMI calculator, IP checker and more.">
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #e3f2fd, #f5f7fa);
+      margin: 0;
+      padding: 0;
+      color: #222;
+    }
+    header {
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #0d47a1;
+    }
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+    nav a {
+      color: #0d47a1;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.3rem 0.6rem;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      background: #0d47a1;
+      color: white;
+    }
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem;
+    }
+    h2 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #0d47a1;
+      border-left: 5px solid #0d47a1;
+      padding-left: 10px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      transition: 0.3s;
+      text-align: center;
+      font-size: 1.05rem;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+    .card a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #1565c0;
+    }
+    .card a:hover {
+      color: #0d47a1;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #0d47a1;
+      color: white;
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a> | 
-    <a href="about.html">About</a> | 
-    <a href="contact.html">Contact</a> | 
-    <a href="privacy.html">Privacy</a> | 
-    <a href="terms.html">Terms</a>
-  </nav>
+  <header>
+    <div class="logo">⚡ Zain Tools</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </header>
 
-  <h1>Welcome to Zain Tools</h1>
-  <p>Free, fast, and simple online tools to make your life easier.</p>
+  <main>
+    <h2>Popular Tools</h2>
+    <div class="grid">
+      <div class="card"><a href="password.html">🔑 Password Generator</a></div>
+      <div class="card"><a href="qr.html">📱 QR Code Generator</a></div>
+      <div class="card"><a href="bmi.html">⚖️ BMI Calculator</a></div>
+      <div class="card"><a href="age-calculator.html">🎂 Age Calculator</a></div>
+      <div class="card"><a href="ip-finder.html">🌍 IP Finder</a></div>
+      <div class="card"><a href="converter.html">🔄 Converter</a></div>
+      <div class="card"><a href="color-picker.html">🎨 Color Picker</a></div>
+      <div class="card"><a href="word-counter.html">✍️ Word Counter</a></div>
+      <div class="card"><a href="json-formatter.html">📂 JSON Formatter</a></div>
+      <div class="card"><a href="text-to-speech.html">🗣️ Text to Speech</a></div>
+      <div class="card"><a href="yt-thumb.html">▶️ YouTube Thumbnail Grabber</a></div>
+      <div class="card"><a href="image-compressor.html">🖼️ Image Compressor</a></div>
+      <div class="card"><a href="unit-converter.html">📏 Unit Converter</a></div>
+      <div class="card"><a href="url-tools.html">🔗 URL Tools</a></div>
+      <div class="card"><a href="calculator.html">🧮 Calculator</a></div>
+    </div>
 
-  <h2>Popular Tools</h2>
-  <ul>
-    <li><a href="password.html">Password Generator</a></li>
-    <li><a href="qr.html">QR Code Generator</a></li>
-    <li><a href="bmi.html">BMI Calculator</a></li>
-    <li><a href="age-calculator.html">Age Calculator</a></li>
-    <li><a href="unit-converter.html">Unit Converter</a></li>
-    <li><a href="converter.html">Text/Number Converter</a></li>
-    <li><a href="ip-finder.html">IP Finder</a></li>
-    <li><a href="json-formatter.html">JSON Formatter</a></li>
-    <li><a href="text-to-speech.html">Text to Speech</a></li>
-    <li><a href="word-counter.html">Word Counter</a></li>
-    <li><a href="yt-thumb.html">YouTube Thumbnail Downloader</a></li>
-    <li><a href="color-picker.html">Color Picker</a></li>
-    <li><a href="image-compressor.html">Image Compressor</a></li>
-    <li><a href="calculator.html">Basic Calculator</a></li>
-    <li><a href="url-tools.html">URL Tools</a></li>
-  </ul>
-
-  <h2>Latest Articles</h2>
-  <ul>
-    <li><a href="articles/strong-password-tips.html">Strong Password Tips</a></li>
-  </ul>
+    <h2>Latest Articles</h2>
+    <div class="grid">
+      <div class="card"><a href="articles/strong-password-tips.html">🔒 Strong Password Tips</a></div>
+    </div>
+  </main>
 
   <footer>
-    <p>&copy; 2025 Zain Tools. All rights reserved.</p>
+    © 2025 Zain Tools. All rights reserved.
   </footer>
 </body>
 </html>
+
 
