@@ -6,12 +6,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zainovahub Tools - Free Online Tools</title>
-  <meta name="description" content="Zainovahub Tools: Free, fast, and simple online tools like password generator, QR code generator, BMI calculator, converters, and more.">
+  <meta name="description" content="Zainovahub Tools: Free online utilities like password generator, QR code generator, BMI calculator, converters, IP checker, word counter, and more.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- ===== Header / Navbar ===== -->
+  <!-- ===== Header ===== -->
   <header>
     <h1>Zainovahub Tools</h1>
     <nav>
@@ -23,44 +23,60 @@
     </nav>
   </header>
 
-  <!-- ===== Hero Section ===== -->
+  <!-- ===== Hero ===== -->
   <section class="hero">
-    <h2>Welcome to Zainovahub Tools</h2>
-    <p>Free, fast, and simple online tools to make your life easier 🚀</p>
+    <h2>Welcome to Zainovahub Tools 🚀</h2>
+    <p>Free, fast, and modern online tools to make your life easier.</p>
   </section>
 
-  <!-- ===== Popular Tools Section ===== -->
+  <!-- ===== Search ===== -->
+  <div class="search-box">
+    <input type="text" id="toolSearch" placeholder="Search tools...">
+  </div>
+
+  <!-- ===== Generators ===== -->
   <section class="section">
-    <h3>Popular Tools</h3>
-    <div class="cards">
-      <div class="card">
-        <h4><a href="password.html">Password Generator</a></h4>
-        <p>Create strong and secure passwords instantly.</p>
-      </div>
-      <div class="card">
-        <h4><a href="qr.html">QR Code Generator</a></h4>
-        <p>Generate QR codes quickly for links or text.</p>
-      </div>
-      <div class="card">
-        <h4><a href="bmi.html">BMI Calculator</a></h4>
-        <p>Check your Body Mass Index (BMI) easily.</p>
-      </div>
-      <div class="card">
-        <h4><a href="converter.html">Unit Converter</a></h4>
-        <p>Convert units like length, weight, and temperature.</p>
-      </div>
-      <div class="card">
-        <h4><a href="age-calculator.html">Age Calculator</a></h4>
-        <p>Find your exact age in years, months, and days.</p>
-      </div>
-      <div class="card">
-        <h4><a href="ip-finder.html">IP Finder</a></h4>
-        <p>Check your public IP address instantly.</p>
-      </div>
+    <h3>Generators</h3>
+    <div class="cards" id="toolsList">
+      <div class="card"><h4><a href="password.html">Password Generator</a></h4><p>Create strong and secure passwords instantly.</p></div>
+      <div class="card"><h4><a href="qr.html">QR Code Generator</a></h4><p>Generate QR codes quickly for links or text.</p></div>
+      <div class="card"><h4><a href="yt-thumb.html">YouTube Thumbnail Downloader</a></h4><p>Download thumbnails from YouTube videos.</p></div>
+      <div class="card"><h4><a href="text-to-speech.html">Text to Speech</a></h4><p>Convert your text into realistic speech.</p></div>
     </div>
   </section>
 
-  <!-- ===== Latest Articles Section ===== -->
+  <!-- ===== Converters ===== -->
+  <section class="section">
+    <h3>Converters</h3>
+    <div class="cards">
+      <div class="card"><h4><a href="converter.html">Unit Converter</a></h4><p>Convert length, weight, and temperature units.</p></div>
+      <div class="card"><h4><a href="age-calculator.html">Age Calculator</a></h4><p>Find your exact age in years, months, and days.</p></div>
+      <div class="card"><h4><a href="calculator.html">Calculator</a></h4><p>Simple online calculator for quick math.</p></div>
+      <div class="card"><h4><a href="color-picker.html">Color Picker</a></h4><p>Pick and copy HEX or RGB colors easily.</p></div>
+    </div>
+  </section>
+
+  <!-- ===== Checkers ===== -->
+  <section class="section">
+    <h3>Checkers</h3>
+    <div class="cards">
+      <div class="card"><h4><a href="bmi.html">BMI Calculator</a></h4><p>Check your Body Mass Index (BMI) easily.</p></div>
+      <div class="card"><h4><a href="ip-finder.html">IP Finder</a></h4><p>Check your public IP address instantly.</p></div>
+      <div class="card"><h4><a href="word-counter.html">Word Counter</a></h4><p>Count words, characters, and sentences easily.</p></div>
+      <div class="card"><h4><a href="url-tools.html">URL Tools</a></h4><p>Encode, decode, and analyze URLs.</p></div>
+    </div>
+  </section>
+
+  <!-- ===== File Tools ===== -->
+  <section class="section">
+    <h3>File Tools</h3>
+    <div class="cards">
+      <div class="card"><h4><a href="image-compressor.html">Image Compressor</a></h4><p>Compress your images without losing quality.</p></div>
+      <div class="card"><h4><a href="json-formatter.html">JSON Formatter</a></h4><p>Format and beautify JSON data online.</p></div>
+    </div>
+  </section>
+
+  <!-- ===== Articles ===== -->
   <section class="section">
     <h3>Latest Articles</h3>
     <div class="cards">
@@ -75,6 +91,20 @@
   <footer>
     <p>© 2025 Zainovahub Tools. All rights reserved.</p>
   </footer>
+
+  <!-- ===== Search Filter Script ===== -->
+  <script>
+    const searchInput = document.getElementById("toolSearch");
+    const cards = document.querySelectorAll(".card");
+
+    searchInput.addEventListener("keyup", function() {
+      const filter = searchInput.value.toLowerCase();
+      cards.forEach(card => {
+        let text = card.innerText.toLowerCase();
+        card.style.display = text.includes(filter) ? "" : "none";
+      });
+    });
+  </script>
 
 </body>
 </html>
