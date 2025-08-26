@@ -1,0 +1,12 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>YouTube Thumbnail Downloader</title>
+<style>body{font-family:Arial;text-align:center;background:#f7f9fc;padding:36px}input{padding:10px;width:360px}button{padding:10px 16px}img{margin-top:20px;max-width:100%;border:1px solid #ddd;border-radius:6px}</style>
+</head><body>
+<h1>🎥 YouTube Thumbnail Downloader</h1>
+<input id="link" placeholder="Paste YouTube URL"><button onclick="go()">Get Thumbnail</button>
+<br><img id="img" alt="">
+<script>
+function getId(u){try{const url=new URL(u); if(url.hostname.includes('youtu.be')) return url.pathname.split('/')[1]; return url.searchParams.get('v')||'';}catch(e){return ''}}
+function go(){const id=getId(document.getElementById('link').value.trim()); if(!id){alert('Invalid YouTube URL');return;} document.getElementById('img').src=`https://img.youtube.com/vi/${id}/maxresdefault.jpg`;}
+</script>
+</body></html>

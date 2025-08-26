@@ -1,0 +1,13 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>BMI Calculator</title>
+<style>body{font-family:Arial;text-align:center;background:#f7f9fc;padding:36px}input,button{padding:10px;margin:6px}</style>
+</head><body>
+<h1>⚖️ BMI Calculator</h1>
+<input id="w" type="number" placeholder="Weight (kg)"> 
+<input id="h" type="number" placeholder="Height (cm)">
+<button onclick="calc()">Calculate</button>
+<p id="o"></p>
+<script>
+function calc(){const wv=parseFloat(w.value), hv=parseFloat(h.value); if(!wv||!hv)return alert('Enter weight & height'); const m=hv/100, bmi=(wv/(m*m)).toFixed(1); let c=bmi<18.5?'Underweight':bmi<25?'Normal':bmi<30?'Overweight':'Obese'; o.innerText=`BMI: ${bmi} (${c})`;}
+</script>
+</body></html>

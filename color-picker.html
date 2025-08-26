@@ -1,54 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Color Picker — Free Tools Hub</title>
-  <meta name="description" content="Pick color and copy HEX/RGB." />
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="canonical" href="https://zainovahub-code.github.io/zain/" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-<div class="wrap">
-  <header class="site-head">
-    <div class="brand">
-      <img src="favicon.svg" alt="logo" />
-      <div>
-        <h1>Free Tools Hub</h1>
-        <p class="tag">Fast • Free • No sign‑up</p>
-      </div>
-    </div>
-    <nav class="topnav">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-    </nav>
-  </header>
-  <main class="content">
-
-<h2>Color Picker</h2>
-<div class="tool-wrap">
-  <input type="color" id="c" class="input" value="#60a5fa">
-  <div class="card"><b>HEX:</b> <span id="hex">#60a5fa</span> &nbsp; • &nbsp; <b>RGB:</b> <span id="rgb">96,165,250</span></div>
-</div>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Color Picker</title>
+<style>body{font-family:Arial;text-align:center;background:#f7f9fc;padding:36px}input{padding:10px;margin:8px}</style>
+</head><body>
+<h1>🎨 Color Picker</h1>
+<input type="color" id="c" value="#007bff" oninput="show()"><br>
+<input id="hex" readonly value="#007bff"> <input id="rgb" readonly value="rgb(0,123,255)">
 <script>
-function hexToRgb(h){const m=h.replace('#','');return [parseInt(m.substr(0,2),16),parseInt(m.substr(2,2),16),parseInt(m.substr(4,2),16)];}
-c.oninput=()=>{hex.textContent=c.value; const r=hexToRgb(c.value); rgb.textContent=r.join(',');}
+function show(){const v=document.getElementById('c').value; document.getElementById('hex').value=v; const r=parseInt(v.substr(1,2),16), g=parseInt(v.substr(3,2),16), b=parseInt(v.substr(5,2),16); document.getElementById('rgb').value=`rgb(${r},${g},${b})`;}
+show();
 </script>
-
-  </main>
-  <footer class="site-foot">
-    <div class="links">
-      <a href="index.html">Home</a> ·
-      <a href="privacy.html">Privacy</a> ·
-      <a href="terms.html">Terms</a> ·
-      <a href="sitemap.xml">Sitemap</a>
-    </div>
-    <p>© Free Tools Hub • Built for speed • No tracking cookies.</p>
-  </footer>
-</div>
-</body>
-</html>
+</body></html>

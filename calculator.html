@@ -1,59 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Calculator — Free Tools Hub</title>
-  <meta name="description" content="Quick calculator for basic math." />
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="canonical" href="https://zainovahub-code.github.io/zain/" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-<div class="wrap">
-  <header class="site-head">
-    <div class="brand">
-      <img src="favicon.svg" alt="logo" />
-      <div>
-        <h1>Free Tools Hub</h1>
-        <p class="tag">Fast • Free • No sign‑up</p>
-      </div>
-    </div>
-    <nav class="topnav">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-    </nav>
-  </header>
-  <main class="content">
-
-<h2>Calculator</h2>
-<div class="tool-wrap">
-  <input id="a" class="input" type="number" placeholder="A">
-  <select id="op" class="input"><option>+</option><option>-</option><option>*</option><option>/</option></select>
-  <input id="b" class="input" type="number" placeholder="B">
-  <div class="actions"><button onclick="calc()">=</button></div>
-  <div class="card"><b>Result:</b> <span id="r">0</span></div>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Calculator</title>
+<style>body{font-family:Arial;text-align:center;background:#f7f9fc;padding:36px}input{padding:10px;width:260px;text-align:right}button{padding:10px 14px;margin:4px}</style>
+</head><body>
+<h1>🧮 Calculator</h1>
+<input id="scr" readonly><br>
+<div>
+  <button onclick="cl()">C</button>
+  <button onclick="add('/')">/</button>
+  <button onclick="add('*')">*</button>
+  <button onclick="bk()">⌫</button>
+</div>
+<div>
+  <button onclick="add('7')">7</button><button onclick="add('8')">8</button><button onclick="add('9')">9</button><button onclick="add('-')">-</button>
+</div>
+<div>
+  <button onclick="add('4')">4</button><button onclick="add('5')">5</button><button onclick="add('6')">6</button><button onclick="add('+')">+</button>
+</div>
+<div>
+  <button onclick="add('1')">1</button><button onclick="add('2')">2</button><button onclick="add('3')">3</button><button onclick="eq()">=</button>
+</div>
+<div>
+  <button onclick="add('0')">0</button><button onclick="add('.')">.</button>
 </div>
 <script>
-function calc(){ const A=+a.value||0, B=+b.value||0, O=op.value;
-  let v=0; if(O==='+')v=A+B; else if(O==='-')v=A-B; else if(O==='*')v=A*B; else v=B===0? '∞' : (A/B);
-  r.textContent = v;
-}
+const s=document.getElementById('scr'); function add(x){s.value+=x;} function cl(){s.value='';} function bk(){s.value=s.value.slice(0,-1);} function eq(){try{s.value=eval(s.value)}catch(e){alert('Error')}} 
 </script>
-
-  </main>
-  <footer class="site-foot">
-    <div class="links">
-      <a href="index.html">Home</a> ·
-      <a href="privacy.html">Privacy</a> ·
-      <a href="terms.html">Terms</a> ·
-      <a href="sitemap.xml">Sitemap</a>
-    </div>
-    <p>© Free Tools Hub • Built for speed • No tracking cookies.</p>
-  </footer>
-</div>
-</body>
-</html>
+</body></html>

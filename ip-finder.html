@@ -1,53 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>IP Finder — Free Tools Hub</title>
-  <meta name="description" content="See your public IP address." />
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="canonical" href="https://zainovahub-code.github.io/zain/" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-<div class="wrap">
-  <header class="site-head">
-    <div class="brand">
-      <img src="favicon.svg" alt="logo" />
-      <div>
-        <h1>Free Tools Hub</h1>
-        <p class="tag">Fast • Free • No sign‑up</p>
-      </div>
-    </div>
-    <nav class="topnav">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-    </nav>
-  </header>
-  <main class="content">
-
-<h2>Your IP Address</h2>
-<div class="tool-wrap">
-  <div class="card"><b>IP:</b> <span id="ip">Loading…</span></div>
-  <small class="muted">Fetched using a public service (api.ipify.org).</small>
-</div>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>IP Finder</title>
+<style>body{font-family:Arial;text-align:center;background:#f7f9fc;padding:36px}button{padding:10px 16px}</style>
+</head><body>
+<h1>🌍 Your Public IP</h1>
+<p id="ip">Click the button to fetch your public IP address.</p>
+<button onclick="getIP()">Get My IP</button>
 <script>
-fetch('https://api.ipify.org?format=json').then(r=>r.json()).then(j=>ip.textContent=j.ip).catch(_=>ip.textContent='Error');
+async function getIP(){try{const r=await fetch('https://api.ipify.org?format=json'); const d=await r.json(); document.getElementById('ip').innerText='Your IP: '+d.ip;}catch(e){document.getElementById('ip').innerText='Failed to fetch IP.';}}
 </script>
-
-  </main>
-  <footer class="site-foot">
-    <div class="links">
-      <a href="index.html">Home</a> ·
-      <a href="privacy.html">Privacy</a> ·
-      <a href="terms.html">Terms</a> ·
-      <a href="sitemap.xml">Sitemap</a>
-    </div>
-    <p>© Free Tools Hub • Built for speed • No tracking cookies.</p>
-  </footer>
-</div>
-</body>
-</html>
+</body></html>

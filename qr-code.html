@@ -1,0 +1,13 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>QR Code Generator</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+<style>body{font-family:Arial;text-align:center;background:#f7f9fc;padding:36px}input{padding:10px;width:340px}button{padding:10px 16px;margin-left:6px}</style>
+</head><body>
+<h1>📱 QR Code Generator</h1>
+<input id="txt" placeholder="Enter text or URL"><button onclick="make()">Generate</button>
+<br><br><canvas id="qrc"></canvas>
+<script>
+const qr=new QRious({element:document.getElementById('qrc'),size:240,value:""});
+function make(){qr.value=document.getElementById('txt').value||"";}
+</script>
+</body></html>

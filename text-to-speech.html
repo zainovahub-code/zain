@@ -1,58 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Text to Speech — Free Tools Hub</title>
-  <meta name="description" content="Convert text to speech in your browser." />
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="canonical" href="https://zainovahub-code.github.io/zain/" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-<div class="wrap">
-  <header class="site-head">
-    <div class="brand">
-      <img src="favicon.svg" alt="logo" />
-      <div>
-        <h1>Free Tools Hub</h1>
-        <p class="tag">Fast • Free • No sign‑up</p>
-      </div>
-    </div>
-    <nav class="topnav">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-    </nav>
-  </header>
-  <main class="content">
-
-<h2>Text to Speech</h2>
-<div class="tool-wrap">
-  <label>Text</label><textarea id="t" class="input" placeholder="Type something to speak..."></textarea>
-  <label>Voice</label><select id="v" class="input"></select>
-  <div class="actions"><button onclick="speak()">Speak</button> <button onclick="stopS()">Stop</button></div>
-</div>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Text to Speech</title>
+<style>body{font-family:Arial;text-align:center;background:#f7f9fc;padding:36px}textarea{width:92%;max-width:650px;height:150px;padding:10px}button,select{padding:10px;margin:6px}</style>
+</head><body>
+<h1>🔊 Text to Speech</h1>
+<textarea id="t" placeholder="Type your text..."></textarea><br>
+<select id="v"></select><button onclick="speak()">Speak</button><button onclick="stopSpeak()">Stop</button>
 <script>
-const synth=window.speechSynthesis; let voices=[];
-function loadVoices(){ voices=synth.getVoices(); v.innerHTML = voices.map((x,i)=>`<option value='${i}'>${x.name} (${x.lang})</option>`).join(''); }
-loadVoices(); if(synth.onvoiceschanged!==undefined) synth.onvoiceschanged=loadVoices;
-function speak(){ const u=new SpeechSynthesisUtterance(t.value||'Hello'); const idx=+v.value||0; if(voices[idx]) u.voice=voices[idx]; synth.speak(u); }
-function stopS(){ synth.cancel(); }
+const vSel=document.getElementById('v');let voices=[];
+function load(){voices=speechSynthesis.getVoices(); vSel.innerHTML=voices.map((v,i)=>`<option value="${i}">${v.name}</option>`).join('');}
+speechSynthesis.onvoiceschanged=load;load();
+function speak(){const txt=t.value.trim(); if(!txt)return; const u=new SpeechSynthesisUtterance(txt); const i=parseInt(vSel.value||0); if(voices[i])u.voice=voices[i]; speechSynthesis.speak(u);}
+function stopSpeak(){speechSynthesis.cancel();}
 </script>
-
-  </main>
-  <footer class="site-foot">
-    <div class="links">
-      <a href="index.html">Home</a> ·
-      <a href="privacy.html">Privacy</a> ·
-      <a href="terms.html">Terms</a> ·
-      <a href="sitemap.xml">Sitemap</a>
-    </div>
-    <p>© Free Tools Hub • Built for speed • No tracking cookies.</p>
-  </footer>
-</div>
-</body>
-</html>
+</body></html>
