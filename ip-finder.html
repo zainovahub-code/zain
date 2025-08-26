@@ -1,11 +1,16 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>IP Finder</title>
-<style>body{font-family:Arial;text-align:center;background:#f7f9fc;padding:36px}button{padding:10px 16px}</style>
-</head><body>
-<h1>🌍 Your Public IP</h1>
-<p id="ip">Click the button to fetch your public IP address.</p>
-<button onclick="getIP()">Get My IP</button>
-<script>
-async function getIP(){try{const r=await fetch('https://api.ipify.org?format=json'); const d=await r.json(); document.getElementById('ip').innerText='Your IP: '+d.ip;}catch(e){document.getElementById('ip').innerText='Failed to fetch IP.';}}
-</script>
-</body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IP Finder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><h1>IP Finder</h1></header>
+  <div class="container">
+    <p>This is the IP Finder tool page. Functionality coming soon.</p>
+    <p><a href="index.html">⬅ Back to Home</a></p>
+  </div>
+</body>
+</html>

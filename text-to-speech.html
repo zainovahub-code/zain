@@ -1,15 +1,16 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Text to Speech</title>
-<style>body{font-family:Arial;text-align:center;background:#f7f9fc;padding:36px}textarea{width:92%;max-width:650px;height:150px;padding:10px}button,select{padding:10px;margin:6px}</style>
-</head><body>
-<h1>🔊 Text to Speech</h1>
-<textarea id="t" placeholder="Type your text..."></textarea><br>
-<select id="v"></select><button onclick="speak()">Speak</button><button onclick="stopSpeak()">Stop</button>
-<script>
-const vSel=document.getElementById('v');let voices=[];
-function load(){voices=speechSynthesis.getVoices(); vSel.innerHTML=voices.map((v,i)=>`<option value="${i}">${v.name}</option>`).join('');}
-speechSynthesis.onvoiceschanged=load;load();
-function speak(){const txt=t.value.trim(); if(!txt)return; const u=new SpeechSynthesisUtterance(txt); const i=parseInt(vSel.value||0); if(voices[i])u.voice=voices[i]; speechSynthesis.speak(u);}
-function stopSpeak(){speechSynthesis.cancel();}
-</script>
-</body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text to Speech</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><h1>Text to Speech</h1></header>
+  <div class="container">
+    <p>This is the Text to Speech tool page. Functionality coming soon.</p>
+    <p><a href="index.html">⬅ Back to Home</a></p>
+  </div>
+</body>
+</html>

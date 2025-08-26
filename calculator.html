@@ -1,28 +1,16 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Calculator</title>
-<style>body{font-family:Arial;text-align:center;background:#f7f9fc;padding:36px}input{padding:10px;width:260px;text-align:right}button{padding:10px 14px;margin:4px}</style>
-</head><body>
-<h1>🧮 Calculator</h1>
-<input id="scr" readonly><br>
-<div>
-  <button onclick="cl()">C</button>
-  <button onclick="add('/')">/</button>
-  <button onclick="add('*')">*</button>
-  <button onclick="bk()">⌫</button>
-</div>
-<div>
-  <button onclick="add('7')">7</button><button onclick="add('8')">8</button><button onclick="add('9')">9</button><button onclick="add('-')">-</button>
-</div>
-<div>
-  <button onclick="add('4')">4</button><button onclick="add('5')">5</button><button onclick="add('6')">6</button><button onclick="add('+')">+</button>
-</div>
-<div>
-  <button onclick="add('1')">1</button><button onclick="add('2')">2</button><button onclick="add('3')">3</button><button onclick="eq()">=</button>
-</div>
-<div>
-  <button onclick="add('0')">0</button><button onclick="add('.')">.</button>
-</div>
-<script>
-const s=document.getElementById('scr'); function add(x){s.value+=x;} function cl(){s.value='';} function bk(){s.value=s.value.slice(0,-1);} function eq(){try{s.value=eval(s.value)}catch(e){alert('Error')}} 
-</script>
-</body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><h1>Calculator</h1></header>
+  <div class="container">
+    <p>This is the Calculator tool page. Functionality coming soon.</p>
+    <p><a href="index.html">⬅ Back to Home</a></p>
+  </div>
+</body>
+</html>

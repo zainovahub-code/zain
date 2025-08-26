@@ -1,15 +1,16 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>JSON Formatter</title>
-<style>body{font-family:Arial;text-align:center;background:#f7f9fc;padding:36px}textarea{width:92%;max-width:900px;height:220px;padding:10px}button{padding:10px 14px;margin:6px}</style>
-</head><body>
-<h1>🛠️ JSON Formatter</h1>
-<textarea id="src" placeholder='Paste JSON here...'></textarea><br>
-<button onclick="pretty()">Beautify</button>
-<button onclick="mini()">Minify</button>
-<button onclick="copy()">Copy</button>
-<script>
-function pretty(){try{src.value=JSON.stringify(JSON.parse(src.value), null, 2)}catch(e){alert('Invalid JSON')}}
-function mini(){try{src.value=JSON.stringify(JSON.parse(src.value))}catch(e){alert('Invalid JSON')}}
-function copy(){navigator.clipboard.writeText(src.value); alert('Copied!')}
-</script>
-</body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Formatter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><h1>JSON Formatter</h1></header>
+  <div class="container">
+    <p>This is the JSON Formatter tool page. Functionality coming soon.</p>
+    <p><a href="index.html">⬅ Back to Home</a></p>
+  </div>
+</body>
+</html>
