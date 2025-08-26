@@ -1,125 +1,113 @@
-/* Import Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* 🎨 Premium Modern Style for Zainovahub Tools */
 
 :root {
-  --bg-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  --card-bg: rgba(255, 255, 255, 0.08);
-  --text-color: #ffffff;
-  --accent: #4fc3f7;
-  --accent-hover: #29b6f6;
-  --shadow: rgba(0, 0, 0, 0.5);
+  --bg: #0d1117;         /* Dark modern background */
+  --card: #161b22;       /* Card background */
+  --text: #e6edf3;       /* Main text */
+  --muted: #8b949e;      /* Muted/secondary text */
+  --brand: #2f81f7;      /* Brand blue */
+  --accent: #f778ba;     /* Accent pink */
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
 }
 
 body {
-  background: var(--bg-gradient);
-  color: var(--text-color);
+  background: var(--bg);
+  color: var(--text);
   line-height: 1.6;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
 }
 
-/* Header / Navbar */
-header {
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(10px);
+/* Navbar */
+nav {
+  background: var(--card);
   padding: 1rem 2rem;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-header h1 {
-  font-size: 1.5rem;
-  color: var(--accent);
+  justify-content: center;
+  gap: 2rem;
+  border-bottom: 1px solid #30363d;
 }
 
 nav a {
-  margin: 0 1rem;
+  color: var(--text);
   text-decoration: none;
-  color: var(--text-color);
+  font-weight: 500;
   transition: 0.3s;
 }
 
 nav a:hover {
-  color: var(--accent);
+  color: var(--brand);
 }
 
 /* Hero Section */
 .hero {
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 3rem 1rem;
 }
 
-.hero h2 {
+.hero h1 {
   font-size: 2.5rem;
-  margin-bottom: 1rem;
+  color: var(--brand);
 }
 
 .hero p {
-  font-size: 1.2rem;
-  color: #dbe6ec;
+  color: var(--muted);
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* Section Titles */
+section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  color: var(--accent);
 }
 
 /* Tools Grid */
 .tools {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
-  padding: 2rem;
+  padding: 0 2rem;
 }
 
 .tool-card {
-  background: var(--card-bg);
-  padding: 2rem;
-  border-radius: 15px;
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: 12px;
   text-align: center;
-  box-shadow: 0 4px 15px var(--shadow);
   transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid #30363d;
 }
 
 .tool-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(79, 195, 247, 0.6);
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
 }
 
 .tool-card h3 {
-  margin-bottom: 0.8rem;
-  color: var(--accent);
+  margin-bottom: 0.5rem;
+  color: var(--brand);
 }
 
-/* Buttons */
-.btn {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.6rem 1.4rem;
-  background: var(--accent);
-  color: #fff;
-  border-radius: 30px;
-  text-decoration: none;
-  transition: background 0.3s;
-}
-
-.btn:hover {
-  background: var(--accent-hover);
+.tool-card p {
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
 /* Footer */
 footer {
-  margin-top: auto;
-  background: rgba(0, 0, 0, 0.4);
-  text-align: center;
+  margin-top: 3rem;
   padding: 1rem;
+  text-align: center;
+  background: var(--card);
+  border-top: 1px solid #30363d;
+  color: var(--muted);
   font-size: 0.9rem;
-  color: #ccc;
 }
