@@ -1,154 +1,52 @@
 
-<!DOCTYPE html>
-<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Zainovahub Tools - Free Online Tools</title>
-  <meta name="description" content="Free, fast online tools: password generator, QR code generator, converters, BMI, IP, TTS and more.">
-  <link rel="stylesheet" href="style.css"/>
+  <!-- Title & Description -->
+  <title>Zainovahub Tools – Free Online Tools: Passwords, QR Codes, Text & More</title>
+  <meta name="description" content="Zainovahub par free aur fast online tools available hain: Password Generator, QR Code Generator, Text Case Converter, Word Counter aur bohot kuch. Easy use, no signup.">
+
+  <!-- Charset & Viewport (zaroori for mobile) -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- FAQ Structured Data (Google ko samajhne ke liye) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Password generator kaise use karen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Zainovahub ka Password Generator free hai, strong aur random password turant create karta hai."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "QR code free me ban sakta hai?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Haan, Zainovahub ka QR Code Generator free hai aur aap instantly QR code bana sakte ho."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Text ko uppercase ya lowercase kaise convert karein?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Text Case Converter tool se aap text ko uppercase, lowercase ya title case me turant convert kar sakte ho."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Word counter tool ka kya use hai?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Word Counter tool aapke text ke words, characters aur sentences ko instantly count karta hai."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
-<body>
-
-  <!-- Navbar -->
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-    <a href="privacy.html">Privacy</a>
-    <a href="terms.html">Terms</a>
-  </nav>
-
-  <!-- Hero -->
-  <section class="hero">
-    <h1>Zainovahub Tools</h1>
-    <p>Free, fast & modern online tools — No signup required.</p>
-  </section>
-
-  <!-- Generators -->
-  <section class="section">
-    <h2>Generators</h2>
-    <div class="tools">
-      <div class="tool-card">
-        <h3>🔑 Password Generator</h3>
-        <p>Create strong and secure passwords instantly.</p>
-        <a class="btn" href="password.html">Use Tool →</a>
-      </div>
-
-      <div class="tool-card">
-        <h3>📱 QR Code Generator</h3>
-        <p>Generate QR codes quickly for links or text.</p>
-        <a class="btn" href="qr.html">Use Tool →</a>
-      </div>
-
-      <div class="tool-card">
-        <h3>🎥 YouTube Thumbnail Downloader</h3>
-        <p>Download thumbnails from YouTube videos.</p>
-        <a class="btn" href="yt-thumb.html">Use Tool →</a>
-      </div>
-
-      <div class="tool-card">
-        <h3>🔊 Text to Speech</h3>
-        <p>Convert your text into realistic speech.</p>
-        <a class="btn" href="text-to-speech.html">Use Tool →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Converters -->
-  <section class="section">
-    <h2>Converters</h2>
-    <div class="tools">
-      <div class="tool-card">
-        <h3>📐 Unit Converter</h3>
-        <p>Convert length, weight, and temperature units.</p>
-        <a class="btn" href="converter.html">Use Tool →</a>
-      </div>
-
-      <div class="tool-card">
-        <h3>🎂 Age Calculator</h3>
-        <p>Find your exact age in years, months, and days.</p>
-        <a class="btn" href="age-calculator.html">Use Tool →</a>
-      </div>
-
-      <div class="tool-card">
-        <h3>🧮 Calculator</h3>
-        <p>Simple online calculator for quick math.</p>
-        <a class="btn" href="calculator.html">Use Tool →</a>
-      </div>
-
-      <div class="tool-card">
-        <h3>🎨 Color Picker</h3>
-        <p>Pick and copy HEX or RGB colors easily.</p>
-        <a class="btn" href="color-picker.html">Use Tool →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Checkers -->
-  <section class="section">
-    <h2>Checkers</h2>
-    <div class="tools">
-      <div class="tool-card">
-        <h3>⚖️ BMI Calculator</h3>
-        <p>Check your Body Mass Index (BMI) easily.</p>
-        <a class="btn" href="bmi.html">Use Tool →</a>
-      </div>
-
-      <div class="tool-card">
-        <h3>🌍 IP Finder</h3>
-        <p>Check your public IP address instantly.</p>
-        <a class="btn" href="ip-finder.html">Use Tool →</a>
-      </div>
-
-      <div class="tool-card">
-        <h3>📝 Word Counter</h3>
-        <p>Count words, characters, and sentences easily.</p>
-        <a class="btn" href="word-counter.html">Use Tool →</a>
-      </div>
-
-      <div class="tool-card">
-        <h3>🔗 URL Tools</h3>
-        <p>Encode, decode, and analyze URLs.</p>
-        <a class="btn" href="url-tools.html">Use Tool →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- File Tools -->
-  <section class="section">
-    <h2>File Tools</h2>
-    <div class="tools">
-      <div class="tool-card">
-        <h3>🖼️ Image Compressor</h3>
-        <p>Compress your images without losing quality.</p>
-        <a class="btn" href="image-compressor.html">Use Tool →</a>
-      </div>
-
-      <div class="tool-card">
-        <h3>🛠️ JSON Formatter</h3>
-        <p>Format and beautify JSON data online.</p>
-        <a class="btn" href="json-formatter.html">Use Tool →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Articles -->
-  <section class="section">
-    <h2>Latest Articles</h2>
-    <div class="tools">
-      <div class="tool-card">
-        <h3>🔒 Strong Password Tips</h3>
-        <p>Learn how to create and manage secure passwords.</p>
-        <a class="btn" href="articles/strong-password-tips.html">Read More →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    © 2025 Zainovahub Tools
-  </footer>
-
-</body>
-</html>
