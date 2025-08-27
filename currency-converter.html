@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currency Converter - ZainovaHub</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 400px;
+      margin: 60px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    input, select, button {
+      width: 90%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #28a745;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>💱 Currency Converter</h2>
+    <input type="number" id="amount" placeholder="Enter amount" />
+    <select id="fromCurrency"></select>
+    <select id="toCurrency"></select>
+    <button onclick="convertCurrency()">Convert</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const apiKey = "YOUR_API_KEY"; // Replace with your real API key
+    const fromCurrency = document.getElementById("fromCurrency");
+    const toCurrency = document.getElementById("toCurrency");
+    const result = document.getElementById("result");
+
+    // Fill dropdowns
+    fetch(`https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`)
+      .then(res => res.json())
+      .then(data => {
+        const currencies = Object.keys(data.conversion_rates);
+        currencies.forEach(curr => {
+          let option1 = document.createElement("option");
+          let option2 = document.createElement("option");
+          option1.value = option2.value = curr;
+          option1.text = option2.text = curr;
+          fromCurrency.add(option1);
+          toCurrency.add(option2);
+        });
+        fromCurrency.value = "USD";
+        toCurrency.value = "PKR";
+      });
+
+    function convertCurrency() {
+      const amount = document.getElementById("amount").value;
+      const from = fromCurrency.value;
+      const to = toCurrency.value;
+
+      if (amount === "" || amount <= 0) {
+        result.innerText = "⚠️ Please enter a valid amount";
+        return;
+      }
+
+      fetch(`https://v6.exchangerate-api.com/v6/${apiKey}/latest/${from}`)
+        .then(res => res.json())
+        .then(data => {
+          const rate = data.conversion_rates[to];
+          const converted = (amount * rate).toFixed(2);
+          result.innerText = `${amount} ${from} = ${converted} ${to}`;
+        });
+    }
+  </script>
+</body>
+</html>
