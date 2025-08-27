@@ -1,42 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Home -->
+  <!-- Homepage -->
   <url>
     <loc>https://zainovahub-code.github.io/zain/</loc>
     <priority>1.0</priority>
   </url>
 
-  <!-- Articles -->
+  <!-- Important Static Pages -->
   <url>
-    <loc>https://zainovahub-code.github.io/zain/articles/strong-password-tips.html</loc>
-    <priority>0.7</priority>
+    <loc>https://zainovahub-code.github.io/zain/about.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://zainovahub-code.github.io/zain/contact.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://zainovahub-code.github.io/zain/privacy.html</loc>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://zainovahub-code.github.io/zain/terms.html</loc>
+    <priority>0.4</priority>
   </url>
 
-  <!-- Main Pages -->
-  <url><loc>https://zainovahub-code.github.io/zain/about.html</loc><priority>0.6</priority></url>
-  <url><loc>https://zainovahub-code.github.io/zain/contact.html</loc><priority>0.6</priority></url>
-  <url><loc>https://zainovahub-code.github.io/zain/privacy.html</loc><priority>0.5</priority></url>
-  <url><loc>https://zainovahub-code.github.io/zain/terms.html</loc><priority>0.5</priority></url>
-
   <!-- Tools -->
-  <url><loc>https://zainovahub-code.github.io/zain/age-calculator.html</loc><priority>0.8</priority></url>
-  <url><loc>https://zainovahub-code.github.io/zain/baby-names.html</loc><priority>0.8</priority></url>
-  <url><loc>https://zainovahub-code.github.io/zain/bmi-calculator.html</loc><priority>0.8</priority></url>
-  <url><loc>https://zainovahub-code.github.io/zain/calculator.html</loc><priority>0.8</priority></url>
-  <url><loc>https://zainovahub-code.github.io/zain/color-picker.html</loc><priority>0.7</priority></url>
-  <url><loc>https://zainovahub-code.github.io/zain/converter.html</loc><priority>0.7</priority></url>
-  <url><loc>https://zainovahub-code.github.io/zain/image-compressor.html</loc><priority>0.7</priority></url>
-  <url><loc>https://zainovahub-code.github.io/zain/indian-baby-names.html</loc><priority>0.8</priority></url>
-  <url><loc>https://zainovahub-code.github.io/zain/ip-finder.html</loc><priority>0.7</priority></url>
-  <url><loc>https://zainovahub-code.github.io/zain/json-formatter.html</loc><priority>0.7</priority></url>
-  <url><loc>https://zainovahub-code.github.io/zain/korean-names.html</loc><priority>0.8</priority></url>
-  <url><loc>https://zainovahub-code.github.io/zain/password-generator.html</loc><priority>0.9</priority></url>
-  <url><loc>https://zainovahub-code.github.io/zain/qr-code.html</loc><priority>0.8</priority></url>
-  <url><loc>https://zainovahub-code.github.io/zain/text-to-speech.html</loc><priority>0.8</priority></url>
-  <url><loc>https://zainovahub-code.github.io/zain/unit-converter.html</loc><priority>0.8</priority></url>
-  <url><loc>https://zainovahub-code.github.io/zain/url-tools.html</loc><priority>0.7</priority></url>
-  <url><loc>https://zainovahub-code.github.io/zain/word-counter.html</loc><priority>0.8</priority></url>
-  <url><loc>https://zainovahub-code.github.io/zain/youtube-thumbnail.html</loc><priority>0.8</priority></url>
+  <url><loc>https://zainovahub-code.github.io/zain/age-calculator.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/bmi-calculator.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/bmi.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/calculator.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/color-picker.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/converter.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/currency-converter.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/image-compressor.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/ip-finder.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/json-formatter.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/password-generator.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/password.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/qr-code.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/qr.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/text-to-speech.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/unit-converter.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/url-tools.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/word-counter.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/youtube-thumbnail.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/yt-thumb.html</loc></url>
+
+  <!-- Articles (15 Guides) -->
+  <url><loc>https://zainovahub-code.github.io/zain/articles/age-calculator-guide.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/articles/bmi-calculator-guide.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/articles/password-generator-guide.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/articles/qr-code-guide.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/articles/unit-converter-guide.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/articles/word-counter-guide.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/articles/youtube-thumbnail-guide.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/articles/color-picker-guide.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/articles/image-compressor-guide.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/articles/json-formatter-guide.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/articles/ip-finder-guide.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/articles/currency-converter-guide.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/articles/text-to-speech-guide.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/articles/baby-names-guide.html</loc></url>
+  <url><loc>https://zainovahub-code.github.io/zain/articles/url-tools-guide.html</loc></url>
 
 </urlset>
+
