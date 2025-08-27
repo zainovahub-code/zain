@@ -4,24 +4,29 @@
     <loc>https://zainovahub-code.github.io/zain/</loc>
     <priority>1.0</priority>
   </url>
-  <url>
-    <loc>https://zainovahub-code.github.io/zain/articles/strong-password-tips.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zainovahub-code.github.io/zain/about.html</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zainovahub-code.github.io/zain/contact.html</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zainovahub-code.github.io/zain/privacy.html</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://zainovahub-code.github.io/zain/terms.html</loc>
-    <priority>0.5</priority>
-  </url>
+
+  <!-- Tools -->
+  <url><loc>https://zainovahub-code.github.io/zain/password-generator.html</loc><priority>0.9</priority></url>
+  <url><loc>https://zainovahub-code.github.io/zain/qr-code-generator.html</loc><priority>0.9</priority></url>
+  <url><loc>https://zainovahub-code.github.io/zain/youtube-thumbnail-downloader.html</loc><priority>0.9</priority></url>
+  <url><loc>https://zainovahub-code.github.io/zain/text-to-speech.html</loc><priority>0.9</priority></url>
+  <url><loc>https://zainovahub-code.github.io/zain/unit-converter.html</loc><priority>0.8</priority></url>
+  <url><loc>https://zainovahub-code.github.io/zain/age-calculator.html</loc><priority>0.8</priority></url>
+  <url><loc>https://zainovahub-code.github.io/zain/calculator.html</loc><priority>0.7</priority></url>
+  <url><loc>https://zainovahub-code.github.io/zain/color-picker.html</loc><priority>0.7</priority></url>
+  <url><loc>https://zainovahub-code.github.io/zain/bmi-calculator.html</loc><priority>0.7</priority></url>
+  <url><loc>https://zainovahub-code.github.io/zain/ip-finder.html</loc><priority>0.7</priority></url>
+  <url><loc>https://zainovahub-code.github.io/zain/word-counter.html</loc><priority>0.7</priority></url>
+  <url><loc>https://zainovahub-code.github.io/zain/url-tools.html</loc><priority>0.7</priority></url>
+  <url><loc>https://zainovahub-code.github.io/zain/image-compressor.html</loc><priority>0.6</priority></url>
+  <url><loc>https://zainovahub-code.github.io/zain/json-formatter.html</loc><priority>0.6</priority></url>
+  <url><loc>https://zainovahub-code.github.io/zain/korean-names.html</loc><priority>0.6</priority></url>
+  <url><loc>https://zainovahub-code.github.io/zain/hindu-names.html</loc><priority>0.6</priority></url>
+
+  <!-- Other Pages -->
+  <url><loc>https://zainovahub-code.github.io/zain/articles/strong-password-tips.html</loc><priority>0.6</priority></url>
+  <url><loc>https://zainovahub-code.github.io/zain/about.html</loc><priority>0.5</priority></url>
+  <url><loc>https://zainovahub-code.github.io/zain/contact.html</loc><priority>0.5</priority></url>
+  <url><loc>https://zainovahub-code.github.io/zain/privacy.html</loc><priority>0.5</priority></url>
+  <url><loc>https://zainovahub-code.github.io/zain/terms.html</loc><priority>0.5</priority></url>
 </urlset>
