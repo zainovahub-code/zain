@@ -1,37 +1,43 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QR Code Generator 📱</title>
-<link rel="stylesheet" href="assets/style.css">
-</head><body>
-<div class="tool-wrap">
-  <h1>📱 QR Code Generator</h1>
-  <p>Type text or paste a link. Click generate. Print or save your QR.</p>
-  <div class="tool-card center">
-    <input class="input" id="txt" placeholder="Enter text or URL">
-    <div class="flex">
-      <button class="btn" onclick="make()">Generate</button>
-      <button class="btn" style="background:var(--brand-2)" onclick="dl()">Download</button>
-    </div>
-    <div id="qrcode" style="margin-top:12px"></div>
-  </div>
-  <p><a href="index.html">← Back to Home</a></p>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<script>
-let qr;
-function make(){
-  const el=document.getElementById('qrcode');
-  el.innerHTML='';
-  const val=document.getElementById('txt').value || 'Hello from Zainova Hub!';
-  qr=new QRCode(el,{text:val,width:200,height:200,correctLevel:QRCode.CorrectLevel.H});
-}
-function dl(){
-  const img=document.querySelector('#qrcode img')||document.querySelector('#qrcode canvas');
-  if(!img){alert('Generate a QR first');return;}
-  let url = img.toDataURL? img.toDataURL('image/png'): img.src;
-  const a=document.createElement('a'); a.href=url; a.download='qr-code.png'; a.click();
-}
-make();
-</script>
-</body></html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code Generator – Make Scannable Codes Instantly</title>
+  <meta name="description" content="Generate QR codes for links, text, Wi‑Fi, and more. Simple steps, tips, and FAQs for perfect scans.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="/articles/qr-code.html">
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;line-height:1.7;margin:0;padding:2rem;max-width:900px}
+    h1{margin-top:0} 
+    header,footer{opacity:.8;font-size:.9rem}
+    .container{margin:auto}
+    a{text-decoration:none}
+  </style>
+</head>
+<body>
+  <header>🔎 Guide • <a href="/">Home</a></header>
+  <main class="container">
+    <h1>📱 QR Code Generator – Make Scannable Codes Instantly</h1>
+    
+<p><strong>QR codes</strong> let phones open links, text, or Wi‑Fi with one scan. Great for business cards, posters, menus, and packaging.</p>
+<h2>How to create a QR code</h2>
+<ol>
+  <li>Enter your content (URL, text, Wi‑Fi, contact).</li>
+  <li>Click <em>Generate</em>.</li>
+  <li>Download PNG/SVG and test scan.</li>
+</ol>
+<h2>Tips</h2>
+<ul>
+  <li>Use high contrast (dark code on light background)</li>
+  <li>Leave quiet space around the code</li>
+  <li>Avoid tiny sizes; 2–3 cm minimum in print</li>
+</ul>
+<h2>FAQs</h2>
+<p><strong>Do QR codes expire?</strong> Static codes don’t. Dynamic codes can be edited.</p>
+<p><strong>Is it free?</strong> Yes for static QR codes.</p>
+
+  </main>
+  <footer>© 2025 Zain Tools • Human‑written, copy‑free guides</footer>
+</body>
+</html>

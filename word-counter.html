@@ -1,32 +1,40 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Word Counter ✍️</title>
-<link rel="stylesheet" href="assets/style.css">
-</head><body>
-<div class="tool-wrap">
-  <h1>✍️ Word & Character Counter</h1>
-  <div class="tool-card">
-    <textarea class="input" id="ta" rows="8" placeholder="Start typing or paste your text here..."></textarea>
-    <div class="grid">
-      <div class="card"><b id="w">0</b><br><small>Words</small></div>
-      <div class="card"><b id="c">0</b><br><small>Characters</small></div>
-      <div class="card"><b id="l">0</b><br><small>Lines</small></div>
-    </div>
-  </div>
-  <p><a href="index.html">← Back to Home</a></p>
-</div>
-<script>
-const ta=document.getElementById('ta');
-function upd(){
-  const text=ta.value;
-  const words=(text.trim().match(/\S+/g)||[]).length;
-  const chars=text.length;
-  const lines=text.split(/\n/).length;
-  document.getElementById('w').textContent=words;
-  document.getElementById('c').textContent=chars;
-  document.getElementById('l').textContent=lines;
-}
-ta.addEventListener('input',upd); upd();
-</script>
-</body></html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Counter – Words, Characters & Lines</title>
+  <meta name="description" content="Count words, characters, and lines instantly. Great for students, writers, and SEO work.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="/articles/word-counter.html">
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;line-height:1.7;margin:0;padding:2rem;max-width:900px}
+    h1{margin-top:0} 
+    header,footer{opacity:.8;font-size:.9rem}
+    .container{margin:auto}
+    a{text-decoration:none}
+  </style>
+</head>
+<body>
+  <header>🔎 Guide • <a href="/">Home</a></header>
+  <main class="container">
+    <h1>✍️ Word Counter – Words, Characters & Lines</h1>
+    
+<p>The <strong>Word Counter</strong> shows live counts for words, characters (with/without spaces), and lines.</p>
+<h2>How to use</h2>
+<ol>
+  <li>Paste or type your text.</li>
+  <li>View instant counts and reading time.</li>
+</ol>
+<h2>Use cases</h2>
+<ul>
+  <li>Assignments & applications</li>
+  <li>Social media and SEO limits</li>
+</ul>
+<h2>FAQs</h2>
+<p><strong>Does it support other languages?</strong> Yes, it counts any text input.</p>
+
+  </main>
+  <footer>© 2025 Zain Tools • Human‑written, copy‑free guides</footer>
+</body>
+</html>

@@ -1,36 +1,42 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Text to Speech 🗣️</title>
-<link rel="stylesheet" href="assets/style.css">
-</head><body>
-<div class="tool-wrap">
-  <h1>🗣️ Text to Speech</h1>
-  <div class="tool-card">
-    <textarea class="input" id="ta" rows="6" placeholder="Type something and press Speak"></textarea>
-    <div class="grid">
-      <div class="card"><label>Voice</label><select id="voices" class="input"></select></div>
-      <div class="card"><label>Rate</label><input class="input" type="range" id="rate" min="0.5" max="2" step="0.1" value="1"></div>
-      <div class="card"><label>Pitch</label><input class="input" type="range" id="pitch" min="0" max="2" step="0.1" value="1"></div>
-    </div>
-    <div class="flex">
-      <button class="btn" onclick="speak()">Speak</button>
-      <button class="btn" style="background:var(--brand-2)" onclick="cancel()">Stop</button>
-    </div>
-  </div>
-  <p><a href="index.html">← Back to Home</a></p>
-</div>
-<script>
-let voices=[];
-function loadVoices(){voices = speechSynthesis.getVoices();
-  const sel=document.getElementById('voices'); sel.innerHTML=voices.map((v,i)=>`<option value="${i}">${v.name} (${v.lang})</option>`).join('');}
-speechSynthesis.onvoiceschanged=loadVoices; loadVoices();
-function speak(){
-  const u=new SpeechSynthesisUtterance(document.getElementById('ta').value||'Hello from Zainova Hub');
-  const id=document.getElementById('voices').value; if(voices[id]) u.voice=voices[id];
-  u.rate=+document.getElementById('rate').value; u.pitch=+document.getElementById('pitch').value;
-  speechSynthesis.speak(u);
-}
-function cancel(){speechSynthesis.cancel()}
-</script>
-</body></html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text to Speech – Turn Text into Natural Audio</title>
+  <meta name="description" content="Convert text to natural audio online. Steps, helpful use cases, and FAQs.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="/articles/text-to-speech.html">
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;line-height:1.7;margin:0;padding:2rem;max-width:900px}
+    h1{margin-top:0} 
+    header,footer{opacity:.8;font-size:.9rem}
+    .container{margin:auto}
+    a{text-decoration:none}
+  </style>
+</head>
+<body>
+  <header>🔎 Guide • <a href="/">Home</a></header>
+  <main class="container">
+    <h1>🗣️ Text to Speech – Turn Text into Natural Audio</h1>
+    
+<p><strong>Text to Speech (TTS)</strong> converts written text into spoken audio, useful for learning, accessibility, and narration.</p>
+<h2>How to use</h2>
+<ol>
+  <li>Paste text and choose a voice/language.</li>
+  <li>Click <em>Convert</em> to preview.</li>
+  <li>Download audio if available.</li>
+</ol>
+<h2>Use cases</h2>
+<ul>
+  <li>Listening to articles</li>
+  <li>Language practice</li>
+  <li>Assisting low‑vision users</li>
+</ul>
+<h2>FAQs</h2>
+<p><strong>Can I download MP3?</strong> Many tools allow MP3 export.</p>
+
+  </main>
+  <footer>© 2025 Zain Tools • Human‑written, copy‑free guides</footer>
+</body>
+</html>
