@@ -1,1 +1,27 @@
-<!DOCTYPE html><html><body><h1>Text to Speech</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text to Speech</title>
+  <style>
+    body {font-family: Arial, sans-serif; margin: 20px;}
+    button, input, select {padding: 8px; margin-top: 10px;}
+    .output {margin-top: 15px; font-weight: bold;}
+    .howto {margin-top: 30px; background: #f3f3f3; padding: 15px; border-radius: 8px;}
+  </style>
+</head>
+<body>
+  <h1>Text to Speech</h1>
+  <textarea id="speech" rows="4" cols="40"></textarea><br>
+  <button onclick="speak()">Speak</button>
+  <script>
+    function speak(){let txt=document.getElementById("speech").value;let utter=new SpeechSynthesisUtterance(txt);speechSynthesis.speak(utter);}
+  </script>
+  <div class="howto">
+    <h2>How to Use:</h2>
+    <ol><li>Type text in the box.</li><li>Click 'Speak'.</li><li>Computer will read it aloud.</li></ol>
+  </div>
+  <a href="index.html">⬅ Back to Home</a>
+</body>
+</html>

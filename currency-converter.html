@@ -1,1 +1,30 @@
-<!DOCTYPE html><html><body><h1>Currency Converter</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currency Converter</title>
+  <style>
+    body {font-family: Arial, sans-serif; margin: 20px;}
+    button, input, select {padding: 8px; margin-top: 10px;}
+    .output {margin-top: 15px; font-weight: bold;}
+    .howto {margin-top: 30px; background: #f3f3f3; padding: 15px; border-radius: 8px;}
+  </style>
+</head>
+<body>
+  <h1>Currency Converter</h1>
+  <input id="amt" type="number" placeholder="Amount">
+  <select id="from"><option value="USD">USD</option><option value="PKR">PKR</option><option value="EUR">EUR</option></select>
+  <select id="to"><option value="PKR">PKR</option><option value="USD">USD</option><option value="EUR">EUR</option></select><br>
+  <button onclick="convert()">Convert</button>
+  <div class="output" id="out"></div>
+  <script>
+    async function convert(){let amt=document.getElementById("amt").value;let from=document.getElementById("from").value;let to=document.getElementById("to").value;let res=await fetch(`https://api.exchangerate.host/convert?from=${from}&to=${to}&amount=${amt}`);let data=await res.json();document.getElementById("out").innerText="Result: "+data.result;}
+  </script>
+  <div class="howto">
+    <h2>How to Use:</h2>
+    <ol><li>Enter amount.</li><li>Select From & To currency.</li><li>Click 'Convert' to get result.</li></ol>
+  </div>
+  <a href="index.html">⬅ Back to Home</a>
+</body>
+</html>

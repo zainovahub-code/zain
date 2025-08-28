@@ -1,1 +1,27 @@
-<!DOCTYPE html><html><body><h1>IP Finder</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IP Finder</title>
+  <style>
+    body {font-family: Arial, sans-serif; margin: 20px;}
+    button, input, select {padding: 8px; margin-top: 10px;}
+    .output {margin-top: 15px; font-weight: bold;}
+    .howto {margin-top: 30px; background: #f3f3f3; padding: 15px; border-radius: 8px;}
+  </style>
+</head>
+<body>
+  <h1>IP Finder</h1>
+  <button onclick="getIP()">Find My IP</button>
+  <div class="output" id="ip"></div>
+  <script>
+    async function getIP(){let res=await fetch('https://api.ipify.org?format=json');let data=await res.json();document.getElementById("ip").innerText="Your IP: "+data.ip;}
+  </script>
+  <div class="howto">
+    <h2>How to Use:</h2>
+    <ol><li>Click 'Find My IP'.</li><li>Tool will fetch your public IP.</li><li>Copy it if needed.</li></ol>
+  </div>
+  <a href="index.html">⬅ Back to Home</a>
+</body>
+</html>
