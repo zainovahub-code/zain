@@ -1,163 +1,511 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zain Tools – Fast Online Utilities</title>
-  <meta name="description" content="Free online tools with human-written guides. Secure, fast and simple." />
+  <!-- === SEO BASICS === -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zain Tools – Free Online Tools (Password Generator, QR, Age, TTS, Converter & More)</title>
+  <meta name="description" content="Zain Tools: a fast, clean collection of free online tools — Password Generator, QR Code Generator, YouTube Thumbnail Downloader, Age Calculator, Image Compressor, Word Counter, Text-to-Speech, Currency & Unit Converter, IP Finder, Color Picker, Calculator." />
+  <meta name="keywords" content="free online tools, password generator, qr code generator, youtube thumbnail downloader, age calculator, image compressor, word counter, text to speech, currency converter, unit converter, ip finder, color picker, calculator" />
+  <link rel="icon" href="favicon.svg">
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Zain Tools – Free Online Tools" />
+  <meta property="og:description" content="Password Generator, QR Maker, Age Calculator, Converters & more — clean and blazing fast." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://zainovahub-code.github.io/zain/" />
+
+  <!-- Styles: White & Blue Theme -->
   <style>
-    :root{--bg:#0f172a;--card:#111827;--muted:#94a3b8;--text:#e5e7eb;--accent:#22c55e}
+    :root{
+      --bg:#f8fbff;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#64748b;
+      --blue:#0ea5e9;       /* primary */
+      --blue-600:#0284c7;   /* hover */
+      --border:#e5edf6;
+      --mono:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --radius:16px;
+      --shadow:0 10px 24px rgba(2,132,199,.08);
+    }
     *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;background:linear-gradient(180deg,#0b1220,#0f172a);color:var(--text)}
-    header{padding:24px 16px;max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center}
-    header h1{margin:0;font-size:1.4rem}
-    header a{color:var(--muted);text-decoration:none;margin-left:12px}
-    .grid{max-width:1100px;margin:10px auto 60px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;padding:0 16px}
-    .card{background:rgba(17,24,39,.7);border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:18px;backdrop-filter: blur(6px);box-shadow:0 10px 30px rgba(0,0,0,.25)}
-    .title{font-weight:700;margin:0 0 6px}
-    .desc{color:var(--muted);font-size:.95rem;margin:0 0 14px}
-    .actions{display:flex;gap:10px;flex-wrap:wrap}
-    .btn{flex:1 1 auto;display:inline-block;text-align:center;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.08);text-decoration:none;color:var(--text);transition:.18s}
-    .btn:hover{transform:translateY(-1px);}
-    .primary{background:var(--accent);color:#0b1220;border:none;font-weight:700}
-    footer{max-width:1100px;margin:0 auto 40px;color:var(--muted);padding:0 16px}
-    .kicker{opacity:.8;font-size:.9rem}
+    body{
+      margin:0; background:var(--bg); color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;
+      line-height:1.5;
+    }
+    header{
+      position:sticky; top:0; z-index:10; backdrop-filter:saturate(1.1) blur(6px);
+      background:rgba(255,255,255,.75); border-bottom:1px solid var(--border);
+    }
+    .wrap{max-width:1200px; margin:0 auto; padding:18px 16px;}
+    .brand{display:flex; align-items:center; gap:12px}
+    .brand h1{margin:0; font-size:clamp(18px,3vw,24px)}
+    .brand .tag{color:var(--muted); font-size:14px}
+    .searchbar{margin-top:10px}
+    .searchbar input{
+      width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--border);
+      outline:none; font-size:15px;
+    }
+    .grid{
+      display:grid; gap:18px; padding:20px 16px 40px;
+      grid-template-columns:repeat(auto-fit, minmax(290px, 1fr));
+      max-width:1200px; margin:0 auto;
+    }
+    .card{
+      background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+      box-shadow:var(--shadow); padding:18px;
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+    .card:hover{ transform:translateY(-2px); box-shadow:0 14px 30px rgba(2,132,199,.12); }
+    h2{margin:0 0 12px; font-size:20px}
+    label{display:inline-flex; align-items:center; gap:8px; margin:6px 10px 6px 0}
+    input, select, textarea{
+      background:#fff; color:var(--text); border:1px solid var(--border);
+      border-radius:10px; padding:10px 12px; font-size:15px; outline:none;
+    }
+    textarea{width:100%}
+    .row{display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+    .btn{
+      background:var(--blue); color:#fff; border:none; border-radius:10px;
+      padding:10px 14px; cursor:pointer; font-weight:700;
+    }
+    .btn:hover{ background:var(--blue-600); }
+    .out{
+      background:#f3f9ff; border:1px dashed var(--border); border-radius:12px;
+      padding:12px; margin-top:10px; font-family:var(--mono); word-break:break-word;
+    }
+    details{
+      margin-top:12px; border-top:1px solid var(--border); padding-top:10px; color:var(--muted);
+    }
+    details > summary{cursor:pointer; color:var(--blue); font-weight:600; list-style:none}
+    details > summary::-webkit-details-marker{display:none}
+    .mini{font-size:12px; color:var(--muted)}
+    .thumbs{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:10px; margin-top:10px}
+    .thumbs img{width:100%; border-radius:12px; border:1px solid var(--border)}
+    .swatch{height:44px; border-radius:10px; border:1px solid var(--border)}
+    .footer{max-width:1200px; margin:0 auto; padding:30px 16px 60px; color:var(--muted); font-size:14px}
+    .pill{display:inline-block;background:#e0f2fe;color:#0369a1;padding:4px 10px;border-radius:999px;font-size:12px;margin-right:6px}
+    .hidden{display:none}
   </style>
 </head>
 <body>
-  <header>
-    <h1>⚡ Zain Tools</h1>
-    <nav>
-      <a href="/zain/">Home</a>
-      <a href="/zain/articles/password-generator-article.html">Guides</a>
-    </nav>
-  </header>
 
-  <section class="grid">
-    
-    <div class="card">
-      <p class="title">🧰 Password Generator</p>
-      <p class="desc">Create strong passwords instantly.</p>
-      <div class="actions">
-        <a class="btn primary" href="password-generator.html">Open Tool</a>
-        <a class="btn" href="articles/password-generator-article.html">Read Guide</a>
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <img src="favicon.svg" alt="Zain Tools" width="28" height="28">
+      <div>
+        <h1>Zain Tools</h1>
+        <div class="tag">Fast, clean and free online tools</div>
       </div>
     </div>
-    
-
-    <div class="card">
-      <p class="title">🧰 QR Code Generator</p>
-      <p class="desc">Make QR codes for links & text.</p>
-      <div class="actions">
-        <a class="btn primary" href="qr-code.html">Open Tool</a>
-        <a class="btn" href="articles/qr-code-article.html">Read Guide</a>
-      </div>
+    <div class="searchbar">
+      <input id="search" type="search" placeholder="Search tools… (e.g., password, qr, age, currency)" oninput="filterCards()">
     </div>
-    
+  </div>
+</header>
 
-    <div class="card">
-      <p class="title">🧰 YouTube Thumbnail Downloader</p>
-      <p class="desc">Grab thumbnails in HD.</p>
-      <div class="actions">
-        <a class="btn primary" href="youtube-thumbnail.html">Open Tool</a>
-        <a class="btn" href="articles/youtube-thumbnail-article.html">Read Guide</a>
-      </div>
-    </div>
-    
+<main class="grid" id="toolsGrid">
 
-    <div class="card">
-      <p class="title">🧰 Age Calculator</p>
-      <p class="desc">Find exact age in years, months & days.</p>
-      <div class="actions">
-        <a class="btn primary" href="age-calculator.html">Open Tool</a>
-        <a class="btn" href="articles/age-calculator-article.html">Read Guide</a>
-      </div>
+  <!-- 1) PASSWORD GENERATOR -->
+  <section class="card" data-tags="password security generator strong random">
+    <h2>🔐 Password Generator <span class="pill">Hot</span></h2>
+    <div class="row">
+      <label>Length <input type="number" id="pg_len" value="12" min="6" max="64"></label>
+      <label><input type="checkbox" id="pg_u" checked> A–Z</label>
+      <label><input type="checkbox" id="pg_l" checked> a–z</label>
+      <label><input type="checkbox" id="pg_n" checked> 0–9</label>
+      <label><input type="checkbox" id="pg_s" checked> !@#$%</label>
+      <button class="btn" onclick="pg_generate()">Generate</button>
+      <button class="btn" onclick="pg_copy()">Copy</button>
     </div>
-    
-
-    <div class="card">
-      <p class="title">🧰 Image Compressor</p>
-      <p class="desc">Shrink images without losing quality.</p>
-      <div class="actions">
-        <a class="btn primary" href="image-compressor.html">Open Tool</a>
-        <a class="btn" href="articles/image-compressor-article.html">Read Guide</a>
-      </div>
-    </div>
-    
-
-    <div class="card">
-      <p class="title">🧰 Word Counter</p>
-      <p class="desc">Count words, characters & lines.</p>
-      <div class="actions">
-        <a class="btn primary" href="word-counter.html">Open Tool</a>
-        <a class="btn" href="articles/word-counter-article.html">Read Guide</a>
-      </div>
-    </div>
-    
-
-    <div class="card">
-      <p class="title">🧰 Text to Speech</p>
-      <p class="desc">Convert text to natural audio.</p>
-      <div class="actions">
-        <a class="btn primary" href="text-to-speech.html">Open Tool</a>
-        <a class="btn" href="articles/text-to-speech-article.html">Read Guide</a>
-      </div>
-    </div>
-    
-
-    <div class="card">
-      <p class="title">🧰 Currency Converter</p>
-      <p class="desc">Live rates with quick conversion.</p>
-      <div class="actions">
-        <a class="btn primary" href="currency-converter.html">Open Tool</a>
-        <a class="btn" href="articles/currency-converter-article.html">Read Guide</a>
-      </div>
-    </div>
-    
-
-    <div class="card">
-      <p class="title">🧰 Unit Converter</p>
-      <p class="desc">Length, mass, temperature & more.</p>
-      <div class="actions">
-        <a class="btn primary" href="unit-converter.html">Open Tool</a>
-        <a class="btn" href="articles/unit-converter-article.html">Read Guide</a>
-      </div>
-    </div>
-    
-
-    <div class="card">
-      <p class="title">🧰 IP Finder</p>
-      <p class="desc">See your public IP & location.</p>
-      <div class="actions">
-        <a class="btn primary" href="ip-finder.html">Open Tool</a>
-        <a class="btn" href="articles/ip-finder-article.html">Read Guide</a>
-      </div>
-    </div>
-    
-
-    <div class="card">
-      <p class="title">🧰 Color Picker</p>
-      <p class="desc">Pick colors & copy HEX/RGB.</p>
-      <div class="actions">
-        <a class="btn primary" href="color-picker.html">Open Tool</a>
-        <a class="btn" href="articles/color-picker-article.html">Read Guide</a>
-      </div>
-    </div>
-    
-
-    <div class="card">
-      <p class="title">🧰 Basic Calculator</p>
-      <p class="desc">Clean calculator for quick math.</p>
-      <div class="actions">
-        <a class="btn primary" href="calculator.html">Open Tool</a>
-        <a class="btn" href="articles/calculator-article.html">Read Guide</a>
-      </div>
-    </div>
-    
+    <div class="out" id="pg_out" aria-live="polite">Your password will appear here</div>
+    <details>
+      <summary>📖 Read guide</summary>
+      <p>Use 12–16+ characters with a mix of letters, numbers and symbols. Store in a trusted password manager and enable 2FA where possible.</p>
+    </details>
   </section>
 
-  <footer>
-    <p class="kicker">© 2025 Zain Tools — Fast, privacy‑friendly online utilities with human‑written guides.</p>
-  </footer>
+  <!-- 2) QR CODE GENERATOR -->
+  <section class="card" data-tags="qr code maker generator url text">
+    <h2>📱 QR Code Generator</h2>
+    <input id="qr_text" type="text" placeholder="Enter text or URL" aria-label="QR data">
+    <div class="row">
+      <label>Size <input id="qr_size" type="number" value="240" min="100" max="1000"></label>
+      <button class="btn" onclick="qr_make()">Generate</button>
+      <a id="qr_dl" class="hidden" download="qr.png"><button class="btn" type="button">Download</button></a>
+    </div>
+    <div class="out">
+      <img id="qr_img" alt="QR preview" style="max-width:100%">
+    </div>
+    <div class="mini">Powered by api.qrserver.com</div>
+    <details><summary>📖 Read guide</summary><p>Encode text, links or contact info. Bigger size = better scan quality when printed.</p></details>
+  </section>
+
+  <!-- 3) YOUTUBE THUMBNAIL DOWNLOADER -->
+  <section class="card" data-tags="youtube thumbnail downloader video image">
+    <h2>🎬 YouTube Thumbnail Downloader</h2>
+    <input id="yt_url" type="text" placeholder="Paste YouTube URL">
+    <button class="btn" onclick="yt_get()">Get Thumbnails</button>
+    <div class="thumbs" id="yt_thumbs"></div>
+    <details><summary>📖 Read guide</summary><p>Paste a valid YouTube link. Download SD/HQ/MaxRes if available.</p></details>
+  </section>
+
+  <!-- 4) AGE CALCULATOR -->
+  <section class="card" data-tags="age calculator birthday date years months days">
+    <h2>🎂 Age Calculator</h2>
+    <div class="row">
+      <label>DOB <input type="date" id="age_dob"></label>
+      <button class="btn" onclick="age_calc()">Calculate</button>
+    </div>
+    <div class="out" id="age_out">Exact age will show here</div>
+    <details><summary>📖 Read guide</summary><p>Get your exact age in years, months and days from your date of birth.</p></details>
+  </section>
+
+  <!-- 5) IMAGE COMPRESSOR -->
+  <section class="card" data-tags="image compressor jpg png photo reduce size">
+    <h2>🖼️ Image Compressor</h2>
+    <div class="row">
+      <input type="file" id="ic_file" accept="image/*">
+      <label>Quality <input type="range" id="ic_q" min="0.1" max="1" step="0.1" value="0.7"></label>
+      <button class="btn" onclick="ic_compress()">Compress & Download</button>
+    </div>
+    <div class="mini" id="ic_info"></div>
+    <canvas id="ic_canvas" class="hidden"></canvas>
+    <details><summary>📖 Read guide</summary><p>All processing happens in your browser. Lower quality → smaller file size.</p></details>
+  </section>
+
+  <!-- 6) WORD COUNTER -->
+  <section class="card" data-tags="word counter characters lines reading time">
+    <h2>✍️ Word Counter</h2>
+    <textarea id="wc_text" rows="6" placeholder="Paste or type text here…"></textarea>
+    <div class="row">
+      <div>Words: <b id="wc_words">0</b></div>
+      <div>Characters: <b id="wc_chars">0</b></div>
+      <div>Lines: <b id="wc_lines">0</b></div>
+      <div>Reading time: <b id="wc_time">0 min</b></div>
+    </div>
+    <details><summary>📖 Read guide</summary><p>Reading time is estimated at ~200 words per minute.</p></details>
+  </section>
+
+  <!-- 7) TEXT TO SPEECH -->
+  <section class="card" data-tags="text to speech tts voice read aloud">
+    <h2>🗣️ Text to Speech</h2>
+    <textarea id="tts_text" rows="4" placeholder="Type text to speak…"></textarea>
+    <div class="row">
+      <label>Voice <select id="tts_voice"></select></label>
+      <label>Rate <input id="tts_rate" type="range" min="0.5" max="2" step="0.1" value="1"></label>
+      <button class="btn" onclick="tts_speak()">Speak</button>
+      <button class="btn" onclick="speechSynthesis.cancel()">Stop</button>
+    </div>
+    <details><summary>📖 Read guide</summary><p>Uses your browser’s built-in speech synthesis. Voices differ by device.</p></details>
+  </section>
+
+  <!-- 8) CURRENCY CONVERTER (static sample rates) -->
+  <section class="card" data-tags="currency converter money exchange usd eur pkr inr gbp">
+    <h2>💱 Currency Converter</h2>
+    <div class="row">
+      <input type="number" id="cc_amt" placeholder="Amount" value="1">
+      <select id="cc_from"><option>USD</option><option>EUR</option><option>PKR</option><option>INR</option><option>GBP</option></select>
+      <span>→</span>
+      <select id="cc_to"><option>USD</option><option selected>PKR</option><option>EUR</option><option>INR</option><option>GBP</option></select>
+      <button class="btn" onclick="cc_convert()">Convert</button>
+    </div>
+    <div class="out" id="cc_out">Result will show here</div>
+    <div class="mini">Note: demo uses sample static rates in code. Update rates periodically.</div>
+    <details><summary>📖 Read guide</summary><p>Convert amounts across popular currencies. For live rates, connect an API later.</p></details>
+  </section>
+
+  <!-- 9) UNIT CONVERTER -->
+  <section class="card" data-tags="unit converter length mass temperature cm km ft inch kg lb c f k">
+    <h2>📏 Unit Converter</h2>
+    <div class="row">
+      <select id="uc_cat" onchange="uc_render()">
+        <option value="length">Length</option>
+        <option value="mass">Mass</option>
+        <option value="temp">Temperature</option>
+      </select>
+    </div>
+    <div class="row" id="uc_ui" style="margin-top:8px"></div>
+    <div class="out" id="uc_out">Result will show here</div>
+    <details><summary>📖 Read guide</summary><p>Quickly switch between meters/feet, kg/lb, and °C/°F/K.</p></details>
+  </section>
+
+  <!-- 10) IP FINDER -->
+  <section class="card" data-tags="ip finder address location my ip">
+    <h2>🌍 IP Finder</h2>
+    <button class="btn" onclick="ip_get()">Show My IP</button>
+    <div class="out" id="ip_out">Your IP will appear here</div>
+    <div class="mini">Uses public API ipify.org</div>
+    <details><summary>📖 Read guide</summary><p>Shows your public IP address as seen on the internet.</p></details>
+  </section>
+
+  <!-- 11) COLOR PICKER -->
+  <section class="card" data-tags="color picker hex rgb copy palette">
+    <h2>🎨 Color Picker</h2>
+    <div class="row">
+      <input type="color" id="cp_pick" value="#0ea5e9" aria-label="color picker">
+      <input id="cp_hex" type="text" readonly style="width:130px">
+      <input id="cp_rgb" type="text" readonly style="width:200px">
+      <button class="btn" onclick="cp_copy('cp_hex')">Copy HEX</button>
+      <button class="btn" onclick="cp_copy('cp_rgb')">Copy RGB</button>
+    </div>
+    <div class="swatch" id="cp_swatch" style="margin-top:10px"></div>
+    <details><summary>📖 Read guide</summary><p>Pick any color; copy HEX/RGB for your designs or code.</p></details>
+  </section>
+
+  <!-- 12) BASIC CALCULATOR -->
+  <section class="card" data-tags="calculator math arithmetic">
+    <h2>➗ Basic Calculator</h2>
+    <input id="calc_in" type="text" placeholder="e.g. (12+3)*4 - 5">
+    <button class="btn" onclick="calc_eval()">Calculate</button>
+    <div class="out" id="calc_out">Result will show here</div>
+    <details><summary>📖 Read guide</summary><p>Evaluate quick math expressions. Use parentheses for order of operations.</p></details>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div>© 2025 Zain Tools • Clean, human-written guides • No signup • Fast & free</div>
+</footer>
+
+<!-- ===================== SCRIPTS (ALL TOOLS) ===================== -->
+<script>
+/* ---------- Search / Filter ---------- */
+function filterCards(){
+  const q = (document.getElementById('search').value || '').toLowerCase();
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(c=>{
+    const text = (c.textContent + ' ' + (c.dataset.tags||'')).toLowerCase();
+    c.style.display = text.includes(q) ? '' : 'none';
+  });
+}
+
+/* ---------- 1) Password Generator ---------- */
+function pg_generate(){
+  const U="ABCDEFGHIJKLMNOPQRSTUVWXYZ", L="abcdefghijklmnopqrstuvwxyz", N="0123456789", S="!@#$%^&*()_+-=[]{}|;:,.<>/?";
+  const sets=[];
+  if(document.getElementById('pg_u').checked) sets.push(U);
+  if(document.getElementById('pg_l').checked) sets.push(L);
+  if(document.getElementById('pg_n').checked) sets.push(N);
+  if(document.getElementById('pg_s').checked) sets.push(S);
+  const len = Math.max(6, Math.min(64, +document.getElementById('pg_len').value||12));
+  if(!sets.length){ alert('Select at least one character set'); return; }
+  let pass = sets.map(s=>s[Math.floor(Math.random()*s.length)]).join('');
+  const all = sets.join('');
+  for(let i=pass.length;i<len;i++) pass += all[Math.floor(Math.random()*all.length)];
+  document.getElementById('pg_out').textContent = pass.split('').sort(()=>Math.random()-0.5).join('');
+}
+function pg_copy(){
+  const v = document.getElementById('pg_out').textContent.trim();
+  if(!v){ alert('Generate a password first'); return; }
+  navigator.clipboard?.writeText(v).then(()=>alert('Copied!')).catch(()=>{
+    const ta=document.createElement('textarea'); ta.value=v; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); alert('Copied!');
+  });
+}
+
+/* ---------- 2) QR Code Generator ---------- */
+function qr_make(){
+  const t = encodeURIComponent(document.getElementById('qr_text').value.trim());
+  const s = +document.getElementById('qr_size').value || 240;
+  if(!t){ alert('Enter text/URL'); return; }
+  const url = `https://api.qrserver.com/v1/create-qr-code/?size=${s}x${s}&data=${t}`;
+  const img = document.getElementById('qr_img'); img.src = url; img.alt = 'QR preview';
+  fetch(url).then(r=>r.blob()).then(b=>{
+    const a = document.getElementById('qr_dl');
+    a.href = URL.createObjectURL(b);
+    a.classList.remove('hidden');
+  });
+}
+
+/* ---------- 3) YouTube Thumbnail ---------- */
+function yt_id(url){
+  const m = url.match(/(?:v=|youtu\.be\/|embed\/)([A-Za-z0-9_-]{11})/);
+  return m ? m[1] : null;
+}
+function yt_get(){
+  const id = yt_id(document.getElementById('yt_url').value.trim());
+  if(!id){ alert('Invalid YouTube URL'); return; }
+  const sizes = ["sddefault.jpg","hqdefault.jpg","maxresdefault.jpg"];
+  const wrap = document.getElementById('yt_thumbs'); wrap.innerHTML='';
+  sizes.forEach(s=>{
+    const src = `https://img.youtube.com/vi/${id}/${s}`;
+    const div = document.createElement('div');
+    div.innerHTML = `<img src="${src}" alt="YouTube thumbnail ${s}">
+                     <p><a href="${src}" download>Download ${s}</a></p>`;
+    wrap.appendChild(div);
+  });
+}
+
+/* ---------- 4) Age Calculator ---------- */
+function age_calc(){
+  const v = document.getElementById('age_dob').value;
+  if(!v) return alert('Select your date of birth');
+  const b = new Date(v), now=new Date();
+  let y = now.getFullYear()-b.getFullYear();
+  let m = now.getMonth()-b.getMonth();
+  let d = now.getDate()-b.getDate();
+  if(d<0){ m--; d += new Date(now.getFullYear(), now.getMonth(), 0).getDate(); }
+  if(m<0){ y--; m += 12; }
+  document.getElementById('age_out').textContent = `Exact Age: ${y} years, ${m} months, ${d} days`;
+}
+
+/* ---------- 5) Image Compressor ---------- */
+function ic_compress(){
+  const file = document.getElementById('ic_file').files[0];
+  if(!file) return alert('Choose an image');
+  const q = +document.getElementById('ic_q').value;
+  const img = new Image();
+  const url = URL.createObjectURL(file);
+  img.onload = ()=>{
+    const c = document.getElementById('ic_canvas'), ctx=c.getContext('2d');
+    c.width = img.width; c.height = img.height; ctx.drawImage(img,0,0);
+    c.toBlob(blob=>{
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download='compressed.jpg'; a.click();
+      document.getElementById('ic_info').textContent = `Original: ${(file.size/1024).toFixed(1)} KB → New: ${(blob.size/1024).toFixed(1)} KB`;
+      URL.revokeObjectURL(url);
+    }, 'image/jpeg', q);
+  };
+  img.src = url;
+}
+
+/* ---------- 6) Word Counter ---------- */
+(function wc_boot(){
+  const t = document.getElementById('wc_text');
+  function update(){
+    const v = t.value;
+    const words = (v.trim().match(/\S+/g)||[]).length;
+    const chars = v.length;
+    const lines = v.split(/\n/).length;
+    const mins = Math.max(1, Math.ceil(words/200));
+    document.getElementById('wc_words').textContent = words;
+    document.getElementById('wc_chars').textContent = chars;
+    document.getElementById('wc_lines').textContent = lines;
+    document.getElementById('wc_time').textContent = mins + ' min';
+  }
+  t.addEventListener('input', update); update();
+})();
+
+/* ---------- 7) Text to Speech ---------- */
+let TTS_VOICES=[];
+function tts_load(){
+  TTS_VOICES = speechSynthesis.getVoices();
+  const sel = document.getElementById('tts_voice');
+  sel.innerHTML = TTS_VOICES.map((v,i)=>`<option value="${i}">${v.name} (${v.lang})</option>`).join('');
+}
+speechSynthesis.onvoiceschanged = tts_load; tts_load();
+function tts_speak(){
+  const text = (document.getElementById('tts_text').value||'').trim();
+  if(!text) return alert('Enter some text');
+  const u = new SpeechSynthesisUtterance(text);
+  const i = +document.getElementById('tts_voice').value || 0;
+  u.voice = TTS_VOICES[i] || null;
+  u.rate = +document.getElementById('tts_rate').value || 1;
+  speechSynthesis.speak(u);
+}
+
+/* ---------- 8) Currency Converter (Static sample rates – base USD) ---------- */
+const CC_RATES = { USD:1, EUR:0.92, GBP:0.77, INR:84.0, PKR:280.0 };
+function cc_convert(){
+  const amt = +document.getElementById('cc_amt').value || 0;
+  const from = document.getElementById('cc_from').value;
+  const to = document.getElementById('cc_to').value;
+  const inUSD = amt / (CC_RATES[from]||1);
+  const out = inUSD * (CC_RATES[to]||1);
+  document.getElementById('cc_out').textContent = `${amt} ${from} = ${out.toFixed(2)} ${to}`;
+}
+
+/* ---------- 9) Unit Converter ---------- */
+function uc_render(){
+  const c = document.getElementById('uc_cat').value;
+  const ui = document.getElementById('uc_ui');
+  if(c==='length'){
+    ui.innerHTML = `
+      <input id="uc_val" type="number" value="1">
+      <select id="uc_from"><option>m</option><option>cm</option><option>km</option><option>ft</option><option>in</option></select>
+      <span>→</span>
+      <select id="uc_to"><option>m</option><option>cm</option><option>km</option><option>ft</option><option>in</option></select>
+      <button class="btn" onclick="uc_go()">Convert</button>`;
+  }else if(c==='mass'){
+    ui.innerHTML = `
+      <input id="uc_val" type="number" value="1">
+      <select id="uc_from"><option>kg</option><option>g</option><option>lb</option></select>
+      <span>→</span>
+      <select id="uc_to"><option>kg</option><option>g</option><option>lb</option></select>
+      <button class="btn" onclick="uc_go()">Convert</button>`;
+  }else{
+    ui.innerHTML = `
+      <input id="uc_val" type="number" value="0">
+      <select id="uc_from"><option>°C</option><option>°F</option><option>K</option></select>
+      <span>→</span>
+      <select id="uc_to"><option>°C</option><option>°F</option><option>K</option></select>
+      <button class="btn" onclick="uc_go()">Convert</button>`;
+  }
+}
+function uc_go(){
+  const c = document.getElementById('uc_cat').value;
+  const v = +document.getElementById('uc_val').value;
+  const f = document.getElementById('uc_from').value;
+  const t = document.getElementById('uc_to').value;
+  let out=v;
+  if(c==='length'){
+    const toM = {m:1, cm:0.01, km:1000, ft:0.3048, in:0.0254};
+    out = v * (toM[f]||1) / (toM[t]||1);
+  }else if(c==='mass'){
+    const toKg = {kg:1, g:0.001, lb:0.45359237};
+    out = v * (toKg[f]||1) / (toKg[t]||1);
+  }else{
+    let K;
+    if(f==='°C') K = v + 273.15;
+    else if(f==='°F') K = (v - 32) * 5/9 + 273.15;
+    else K = v;
+    if(t==='°C') out = K - 273.15;
+    else if(t==='°F') out = (K - 273.15)*9/5 + 32;
+    else out = K;
+  }
+  document.getElementById('uc_out').textContent = `Result: ${out.toFixed(4)} ${t}`;
+}
+uc_render();
+
+/* ---------- 10) IP Finder ---------- */
+function ip_get(){
+  fetch('https://api.ipify.org?format=json')
+    .then(r=>r.json())
+    .then(d=> document.getElementById('ip_out').textContent = 'Your IP: ' + d.ip)
+    .catch(()=> alert('Could not fetch IP'));
+}
+
+/* ---------- 11) Color Picker ---------- */
+(function cp_boot(){
+  const cp = document.getElementById('cp_pick');
+  function hexToRgb(hex){ const n=parseInt(hex.slice(1),16); const r=(n>>16)&255,g=(n>>8)&255,b=n&255; return `rgb(${r}, ${g}, ${b})`; }
+  function update(){
+    document.getElementById('cp_hex').value = cp.value.toLowerCase();
+    document.getElementById('cp_rgb').value = hexToRgb(cp.value);
+    document.getElementById('cp_swatch').style.background = cp.value;
+  }
+  window.cp_copy = function(id){
+    const el = document.getElementById(id);
+    el.select(); document.execCommand('copy'); alert('Copied!');
+  }
+  cp.addEventListener('input', update); update();
+})();
+
+/* ---------- 12) Calculator ---------- */
+function calc_eval(){
+  const exp = document.getElementById('calc_in').value;
+  try{
+    const result = Function('"use strict"; return (' + exp + ')')();
+    document.getElementById('calc_out').textContent = 'Result: ' + result;
+  }catch(e){
+    document.getElementById('calc_out').textContent = 'Invalid expression';
+  }
+}
+</script>
+
 </body>
 </html>
