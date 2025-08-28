@@ -1,16 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Word Counter</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header><h1>Word Counter</h1></header>
-  <div class="container">
-    <p>This is the Word Counter tool page. Functionality coming soon.</p>
-    <p><a href="index.html">⬅ Back to Home</a></p>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Counter ✍️</title>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<div class="tool-wrap">
+  <h1>✍️ Word & Character Counter</h1>
+  <div class="tool-card">
+    <textarea class="input" id="ta" rows="8" placeholder="Start typing or paste your text here..."></textarea>
+    <div class="grid">
+      <div class="card"><b id="w">0</b><br><small>Words</small></div>
+      <div class="card"><b id="c">0</b><br><small>Characters</small></div>
+      <div class="card"><b id="l">0</b><br><small>Lines</small></div>
+    </div>
   </div>
-</body>
-</html>
+  <p><a href="index.html">← Back to Home</a></p>
+</div>
+<script>
+const ta=document.getElementById('ta');
+function upd(){
+  const text=ta.value;
+  const words=(text.trim().match(/\S+/g)||[]).length;
+  const chars=text.length;
+  const lines=text.split(/\n/).length;
+  document.getElementById('w').textContent=words;
+  document.getElementById('c').textContent=chars;
+  document.getElementById('l').textContent=lines;
+}
+ta.addEventListener('input',upd); upd();
+</script>
+</body></html>

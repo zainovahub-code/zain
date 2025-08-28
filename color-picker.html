@@ -1,16 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Color Picker</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header><h1>Color Picker</h1></header>
-  <div class="container">
-    <p>This is the Color Picker tool page. Functionality coming soon.</p>
-    <p><a href="index.html">⬅ Back to Home</a></p>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Color Picker 🎨</title>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<div class="tool-wrap">
+  <h1>🎨 Color Picker</h1>
+  <div class="tool-card center">
+    <input type="color" id="c" class="input" style="height:60px">
+    <div class="grid">
+      <div class="card"><b id="hex">#000000</b><br><small>HEX</small></div>
+      <div class="card"><b id="rgb">rgb(0,0,0)</b><br><small>RGB</small></div>
+    </div>
   </div>
-</body>
-</html>
+  <p><a href="index.html">← Back to Home</a></p>
+</div>
+<script>
+const c=document.getElementById('c');
+function upd(){
+  const v=c.value;
+  const r=parseInt(v.substr(1,2),16), g=parseInt(v.substr(3,2),16), b=parseInt(v.substr(5,2),16);
+  document.getElementById('hex').textContent=v;
+  document.getElementById('rgb').textContent=`rgb(${r},${g},${b})`;
+}
+c.addEventListener('input',upd); upd();
+</script>
+</body></html>

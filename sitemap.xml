@@ -1,68 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Homepage -->
-  <url>
-    <loc>https://zainovahub-code.github.io/zain/</loc>
-    <priority>1.0</priority>
-  </url>
-
-  <!-- Important Static Pages -->
-  <url>
-    <loc>https://zainovahub-code.github.io/zain/about.html</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zainovahub-code.github.io/zain/contact.html</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zainovahub-code.github.io/zain/privacy.html</loc>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://zainovahub-code.github.io/zain/terms.html</loc>
-    <priority>0.4</priority>
-  </url>
-
-  <!-- Tools -->
-  <url><loc>https://zainovahub-code.github.io/zain/age-calculator.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/bmi-calculator.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/bmi.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/calculator.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/color-picker.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/converter.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/currency-converter.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/image-compressor.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/ip-finder.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/json-formatter.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/password-generator.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/password.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/qr-code.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/qr.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/text-to-speech.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/unit-converter.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/url-tools.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/word-counter.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/youtube-thumbnail.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/yt-thumb.html</loc></url>
-
-  <!-- Articles (15 Guides) -->
-  <url><loc>https://zainovahub-code.github.io/zain/articles/age-calculator-guide.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/articles/bmi-calculator-guide.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/articles/password-generator-guide.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/articles/qr-code-guide.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/articles/unit-converter-guide.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/articles/word-counter-guide.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/articles/youtube-thumbnail-guide.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/articles/color-picker-guide.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/articles/image-compressor-guide.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/articles/json-formatter-guide.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/articles/ip-finder-guide.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/articles/currency-converter-guide.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/articles/text-to-speech-guide.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/articles/baby-names-guide.html</loc></url>
-  <url><loc>https://zainovahub-code.github.io/zain/articles/url-tools-guide.html</loc></url>
-
+  <url><loc>index.html</loc><lastmod>2025-08-28</lastmod></url>
+  <url><loc>age-calculator.html</loc><lastmod>2025-08-28</lastmod></url>
+  <url><loc>calculator.html</loc><lastmod>2025-08-28</lastmod></url>
+  <url><loc>color-picker.html</loc><lastmod>2025-08-28</lastmod></url>
+  <url><loc>currency-converter.html</loc><lastmod>2025-08-28</lastmod></url>
+  <url><loc>image-compressor.html</loc><lastmod>2025-08-28</lastmod></url>
+  <url><loc>ip-finder.html</loc><lastmod>2025-08-28</lastmod></url>
+  <url><loc>password-generator.html</loc><lastmod>2025-08-28</lastmod></url>
+  <url><loc>qr-code.html</loc><lastmod>2025-08-28</lastmod></url>
+  <url><loc>text-to-speech.html</loc><lastmod>2025-08-28</lastmod></url>
+  <url><loc>unit-converter.html</loc><lastmod>2025-08-28</lastmod></url>
+  <url><loc>word-counter.html</loc><lastmod>2025-08-28</lastmod></url>
+  <url><loc>youtube-thumbnail.html</loc><lastmod>2025-08-28</lastmod></url>
+  <url><loc>articles/converters-guide.html</loc><lastmod>2025-08-28</lastmod></url>
+  <url><loc>articles/how-to-age-calculator.html</loc><lastmod>2025-08-28</lastmod></url>
+  <url><loc>articles/how-to-use-qr.html</loc><lastmod>2025-08-28</lastmod></url>
+  <url><loc>articles/image-compression-guide.html</loc><lastmod>2025-08-28</lastmod></url>
+  <url><loc>articles/strong-password-tips.html</loc><lastmod>2025-08-28</lastmod></url>
+  <url><loc>articles/youtube-thumbnail-guide.html</loc><lastmod>2025-08-28</lastmod></url>
 </urlset>
-

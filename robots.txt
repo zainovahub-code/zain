@@ -1,5 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://zainovahub-code.github.io/zain/sitemap.xml
-
+Sitemap: sitemap.xml

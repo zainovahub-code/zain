@@ -1,16 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unit Converter</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header><h1>Unit Converter</h1></header>
-  <div class="container">
-    <p>This is the Unit Converter tool page. Functionality coming soon.</p>
-    <p><a href="index.html">⬅ Back to Home</a></p>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit Converter 📏</title>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<div class="tool-wrap">
+  <h1>📏 Unit Converter</h1>
+  <div class="tool-card">
+    <label>Category</label>
+    <select class="input" id="cat" onchange="render()">
+      <option value="length">Length</option>
+      <option value="weight">Weight</option>
+      <option value="temp">Temperature</option>
+    </select>
+    <div class="grid">
+      <div><label>From</label><input class="input" id="fromVal" type="number" value="1"></div>
+      <div><label>Unit</label><select class="input" id="fromUnit"></select></div>
+      <div><label>To</label><select class="input" id="toUnit"></select></div>
+    </div>
+    <button class="btn" onclick="convert()">Convert</button>
+    <div id="res" class="result" style="margin-top:10px"></div>
   </div>
-</body>
-</html>
+  <p><a href="index.html">← Back to Home</a></p>
+</div>
+<script>
+const units={
+  length:{m:1, km:1000, cm:0.01, mm:0.001, ft:0.3048, in:0.0254, mi:1609.34},
+  weight:{kg:1, g:0.001, lb:0.453592, oz:0.0283495},
+  temp:{} // handled separately
+};
+function render(){
+  const c=document.getElementById('cat').value;
+  const f=document.getElementById('fromUnit'), t=document.getElementById('toUnit');
+  let opts='';
+  if(c==='temp'){opts='<option>C</option><option>F</option><option>K</option>';}
+  else {opts=Object.keys(units[c]).map(u=>`<option>${u}</option>`).join('');}
+  f.innerHTML=opts; t.innerHTML=opts; f.selectedIndex=0; t.selectedIndex=1;
+}
+function convert(){
+  const c=document.getElementById('cat').value;
+  const val=+document.getElementById('fromVal').value;
+  const fu=document.getElementById('fromUnit').value;
+  const tu=document.getElementById('toUnit').value;
+  let out='';
+  if(c==='temp'){
+    let x=val;
+    if(fu==='F') x=(val-32)*5/9;
+    if(fu==='K') x=val-273.15;
+    let y=x;
+    if(tu==='F') y=x*9/5+32;
+    if(tu==='K') y=x+273.15;
+    if(tu==='C') y=x;
+    out=`${val}°${fu} ≈ ${y.toFixed(4)}°${tu}`;
+  }else{
+    const base=val*units[c][fu];
+    const res=base/units[c][tu];
+    out=`${val} ${fu} ≈ ${res.toFixed(4)} ${tu}`;
+  }
+  document.getElementById('res').textContent=out;
+}
+render(); convert();
+</script>
+</body></html>

@@ -1,16 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IP Finder</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header><h1>IP Finder</h1></header>
-  <div class="container">
-    <p>This is the IP Finder tool page. Functionality coming soon.</p>
-    <p><a href="index.html">⬅ Back to Home</a></p>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IP Finder 🌍</title>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<div class="tool-wrap">
+  <h1>🌍 IP Finder</h1>
+  <div class="tool-card">
+    <button class="btn" onclick="getIp()">Show My IP</button>
+    <div id="res" class="result" style="margin-top:10px"></div>
   </div>
-</body>
-</html>
+  <p><a href="index.html">← Back to Home</a></p>
+</div>
+<script>
+async function getIp(){
+  const ip = await fetch('https://api.ipify.org?format=json').then(r=>r.json()).catch(()=>({ip:'unknown'}));
+  let loc = await fetch('https://ipapi.co/json/').then(r=>r.json()).catch(()=>({city:'',country_name:''}));
+  document.getElementById('res').textContent = `Your IP: ${ip.ip} — ${loc.city||''} ${loc.country_name||''}`.trim();
+}
+getIp();
+</script>
+</body></html>

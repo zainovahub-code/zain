@@ -1,70 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Image Compressor — Free Tools Hub</title>
-  <meta name="description" content="Compress images in your browser (no upload)." />
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="canonical" href="https://zainovahub-code.github.io/zain/" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-<div class="wrap">
-  <header class="site-head">
-    <div class="brand">
-      <img src="favicon.svg" alt="logo" />
-      <div>
-        <h1>Free Tools Hub</h1>
-        <p class="tag">Fast • Free • No sign‑up</p>
-      </div>
-    </div>
-    <nav class="topnav">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-    </nav>
-  </header>
-  <main class="content">
-
-<h2>Image Compressor</h2>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Compressor 🖼️</title>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
 <div class="tool-wrap">
-  <input type="file" id="file" accept="image/*" class="input">
-  <label>Quality (0.1 - 1.0)</label>
-  <input type="number" id="q" class="input" min="0.1" max="1" step="0.1" value="0.7">
-  <canvas id="c" style="max-width:100%;background:#0b1324;border-radius:12px"></canvas>
-  <div class="actions"><button onclick="downloadJpg()">Compress & Download</button></div>
+  <h1>🖼️ Image Compressor</h1>
+  <div class="tool-card center">
+    <input type="file" id="file" accept="image/*" class="input">
+    <label>Quality (0.1 - 1)</label>
+    <input class="input" type="range" id="q" min="0.1" max="1" step="0.05" value="0.7">
+    <button class="btn" onclick="compress()">Compress</button>
+    <div id="out" style="margin-top:12px"></div>
+  </div>
+  <p><a href="index.html">← Back to Home</a></p>
 </div>
 <script>
-const file=document.getElementById('file'); const can=document.getElementById('c'); const ctx=can.getContext('2d');
-let loaded=false;
-file.onchange=e=>{
-  const f=e.target.files[0]; if(!f) return;
-  const r=new FileReader(); r.onload=ev=>{ const img=new Image(); img.onload=()=>{
-    const max=1280; let w=img.naturalWidth, h=img.naturalHeight;
-    if(w>h && w>max){ h=Math.round(h*max/w); w=max; } else if(h>max){ w=Math.round(w*max/h); h=max; }
-    can.width=w; can.height=h; ctx.drawImage(img,0,0,w,h); loaded=true;
-  }; img.src=ev.target.result;}; r.readAsDataURL(f);
-};
-function downloadJpg(){
-  if(!loaded) return alert('Choose an image first');
-  const q=parseFloat(document.getElementById('q').value)||0.7;
-  can.toBlob(b=>{ const a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download='compressed.jpg'; a.click(); }, 'image/jpeg', Math.max(0.1, Math.min(1, q)));
+function compress(){
+  const f=document.getElementById('file').files[0];
+  if(!f) return alert('Choose an image');
+  const q=+document.getElementById('q').value;
+  const img=new Image();
+  const url=URL.createObjectURL(f);
+  img.onload=()=>{
+    const c=document.createElement('canvas'); const ctx=c.getContext('2d');
+    c.width=img.width; c.height=img.height; ctx.drawImage(img,0,0);
+    const data=c.toDataURL('image/jpeg', q);
+    const a=document.createElement('a'); a.href=data; a.download='compressed.jpg';
+    document.getElementById('out').innerHTML = `<img src="${data}" style="max-width:100%;border-radius:12px"><p><a href="${data}" download>Download Compressed</a></p>`;
+    URL.revokeObjectURL(url);
+  };
+  img.src=url;
 }
 </script>
-
-  </main>
-  <footer class="site-foot">
-    <div class="links">
-      <a href="index.html">Home</a> ·
-      <a href="privacy.html">Privacy</a> ·
-      <a href="terms.html">Terms</a> ·
-      <a href="sitemap.xml">Sitemap</a>
-    </div>
-    <p>© Free Tools Hub • Built for speed • No tracking cookies.</p>
-  </footer>
-</div>
-</body>
-</html>
+</body></html>

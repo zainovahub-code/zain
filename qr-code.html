@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR Code Generator 📱</title>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<div class="tool-wrap">
+  <h1>📱 QR Code Generator</h1>
+  <p>Type text or paste a link. Click generate. Print or save your QR.</p>
+  <div class="tool-card center">
+    <input class="input" id="txt" placeholder="Enter text or URL">
+    <div class="flex">
+      <button class="btn" onclick="make()">Generate</button>
+      <button class="btn" style="background:var(--brand-2)" onclick="dl()">Download</button>
+    </div>
+    <div id="qrcode" style="margin-top:12px"></div>
+  </div>
+  <p><a href="index.html">← Back to Home</a></p>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+let qr;
+function make(){
+  const el=document.getElementById('qrcode');
+  el.innerHTML='';
+  const val=document.getElementById('txt').value || 'Hello from Zainova Hub!';
+  qr=new QRCode(el,{text:val,width:200,height:200,correctLevel:QRCode.CorrectLevel.H});
+}
+function dl(){
+  const img=document.querySelector('#qrcode img')||document.querySelector('#qrcode canvas');
+  if(!img){alert('Generate a QR first');return;}
+  let url = img.toDataURL? img.toDataURL('image/png'): img.src;
+  const a=document.createElement('a'); a.href=url; a.download='qr-code.png'; a.click();
+}
+make();
+</script>
+</body></html>

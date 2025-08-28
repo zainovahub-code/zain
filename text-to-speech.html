@@ -1,16 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Text to Speech</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header><h1>Text to Speech</h1></header>
-  <div class="container">
-    <p>This is the Text to Speech tool page. Functionality coming soon.</p>
-    <p><a href="index.html">⬅ Back to Home</a></p>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Text to Speech 🗣️</title>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<div class="tool-wrap">
+  <h1>🗣️ Text to Speech</h1>
+  <div class="tool-card">
+    <textarea class="input" id="ta" rows="6" placeholder="Type something and press Speak"></textarea>
+    <div class="grid">
+      <div class="card"><label>Voice</label><select id="voices" class="input"></select></div>
+      <div class="card"><label>Rate</label><input class="input" type="range" id="rate" min="0.5" max="2" step="0.1" value="1"></div>
+      <div class="card"><label>Pitch</label><input class="input" type="range" id="pitch" min="0" max="2" step="0.1" value="1"></div>
+    </div>
+    <div class="flex">
+      <button class="btn" onclick="speak()">Speak</button>
+      <button class="btn" style="background:var(--brand-2)" onclick="cancel()">Stop</button>
+    </div>
   </div>
-</body>
-</html>
+  <p><a href="index.html">← Back to Home</a></p>
+</div>
+<script>
+let voices=[];
+function loadVoices(){voices = speechSynthesis.getVoices();
+  const sel=document.getElementById('voices'); sel.innerHTML=voices.map((v,i)=>`<option value="${i}">${v.name} (${v.lang})</option>`).join('');}
+speechSynthesis.onvoiceschanged=loadVoices; loadVoices();
+function speak(){
+  const u=new SpeechSynthesisUtterance(document.getElementById('ta').value||'Hello from Zainova Hub');
+  const id=document.getElementById('voices').value; if(voices[id]) u.voice=voices[id];
+  u.rate=+document.getElementById('rate').value; u.pitch=+document.getElementById('pitch').value;
+  speechSynthesis.speak(u);
+}
+function cancel(){speechSynthesis.cancel()}
+</script>
+</body></html>

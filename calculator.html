@@ -1,16 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculator</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header><h1>Calculator</h1></header>
-  <div class="container">
-    <p>This is the Calculator tool page. Functionality coming soon.</p>
-    <p><a href="index.html">⬅ Back to Home</a></p>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator ➗</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.calc{max-width:360px;margin:0 auto}
+.key{padding:14px;border-radius:12px;border:1px solid #e5e7eb;background:#fff;cursor:pointer;font-size:18px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+#screen{height:56px;padding:10px;border-radius:12px;border:1px solid #e5e7eb;background:#0f172a;color:#e2e8f0;font-size:22px;text-align:right}
+</style>
+</head><body>
+<div class="tool-wrap">
+  <h1>➗ Basic Calculator</h1>
+  <div class="tool-card calc">
+    <div id="screen">0</div>
+    <div class="grid-4" style="margin-top:10px">
+      <button class="key" onclick="clr()">C</button>
+      <button class="key" onclick="ins('(')">(</button>
+      <button class="key" onclick="ins(')')">)</button>
+      <button class="key" onclick="del()">DEL</button>
+      <button class="key" onclick="ins('7')">7</button>
+      <button class="key" onclick="ins('8')">8</button>
+      <button class="key" onclick="ins('9')">9</button>
+      <button class="key" onclick="ins('/')">÷</button>
+      <button class="key" onclick="ins('4')">4</button>
+      <button class="key" onclick="ins('5')">5</button>
+      <button class="key" onclick="ins('6')">6</button>
+      <button class="key" onclick="ins('*')">×</button>
+      <button class="key" onclick="ins('1')">1</button>
+      <button class="key" onclick="ins('2')">2</button>
+      <button class="key" onclick="ins('3')">3</button>
+      <button class="key" onclick="ins('-')">−</button>
+      <button class="key" onclick="ins('0')">0</button>
+      <button class="key" onclick="ins('.')">.</button>
+      <button class="key" onclick="eq()">=</button>
+      <button class="key" onclick="ins('+')">+</button>
+    </div>
   </div>
-</body>
-</html>
+  <p><a href="index.html">← Back to Home</a></p>
+</div>
+<script>
+let expr='0';
+function upd(){document.getElementById('screen').textContent=expr;}
+function ins(c){expr = expr==='0'? c : expr + c; upd();}
+function clr(){expr='0'; upd();}
+function del(){expr = expr.length>1? expr.slice(0,-1):'0'; upd();}
+function eq(){try{expr = String(Function('return ('+expr+')')());}catch(e){expr='Error'}; upd();}
+upd();
+</script>
+</body></html>
