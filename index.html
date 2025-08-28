@@ -1,112 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Free Online Tools: Password Generator, QR Code, Age Calculator, Word Counter, Image Compressor, Text to Speech, Currency & Unit Converter and more.">
-  <title>Zainova Hub — Free Online Tools 🚀</title>
-  <link rel="icon" href="favicon.svg">
-  <link rel="stylesheet" href="assets/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zain Tools – Fast Online Utilities</title>
+  <meta name="description" content="Free online tools with human-written guides. Secure, fast and simple." />
+  <style>
+    :root{--bg:#0f172a;--card:#111827;--muted:#94a3b8;--text:#e5e7eb;--accent:#22c55e}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;background:linear-gradient(180deg,#0b1220,#0f172a);color:var(--text)}
+    header{padding:24px 16px;max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center}
+    header h1{margin:0;font-size:1.4rem}
+    header a{color:var(--muted);text-decoration:none;margin-left:12px}
+    .grid{max-width:1100px;margin:10px auto 60px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;padding:0 16px}
+    .card{background:rgba(17,24,39,.7);border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:18px;backdrop-filter: blur(6px);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    .title{font-weight:700;margin:0 0 6px}
+    .desc{color:var(--muted);font-size:.95rem;margin:0 0 14px}
+    .actions{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{flex:1 1 auto;display:inline-block;text-align:center;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.08);text-decoration:none;color:var(--text);transition:.18s}
+    .btn:hover{transform:translateY(-1px);}
+    .primary{background:var(--accent);color:#0b1220;border:none;font-weight:700}
+    footer{max-width:1100px;margin:0 auto 40px;color:var(--muted);padding:0 16px}
+    .kicker{opacity:.8;font-size:.9rem}
+  </style>
 </head>
 <body>
-  <header class="hero">
-    <h1>🚀 Zainova Hub — Free Online Tools</h1>
-    <p>Fast, simple, human‑friendly utilities. No sign‑up. No fluff. ❤️</p>
-    <div class="nav">
-      <a href="#tools">Tools</a> ·
-      <a href="#guides">Guides</a> ·
-      <a href="sitemap.xml">Sitemap</a>
-    </div>
+  <header>
+    <h1>⚡ Zain Tools</h1>
+    <nav>
+      <a href="/zain/">Home</a>
+      <a href="/zain/articles/password-generator-article.html">Guides</a>
+    </nav>
   </header>
 
-  <main class="container">
-    <h2 id="tools" class="section-title">✨ Popular Tools</h2>
-    <div class="grid">
-      <div class="card">
-        <a href="password-generator.html">🔐 Password Generator <span class="badge">Hot</span></a>
-        <p>Create strong passwords instantly.</p>
-      </div>
-      <div class="card">
-        <a href="qr-code.html">📱 QR Code Generator</a>
-        <p>Make QR codes for text, links & more.</p>
-      </div>
-      <div class="card">
-        <a href="youtube-thumbnail.html">🎬 YouTube Thumbnail Downloader</a>
-        <p>Grab thumbnails in HD from any video.</p>
-      </div>
-      <div class="card">
-        <a href="age-calculator.html">🎂 Age Calculator</a>
-        <p>Find your exact age in seconds.</p>
-      </div>
-      <div class="card">
-        <a href="image-compressor.html">🖼️ Image Compressor</a>
-        <p>Shrink images without losing quality.</p>
-      </div>
-      <div class="card">
-        <a href="word-counter.html">✍️ Word Counter</a>
-        <p>Counts words, characters & lines.</p>
-      </div>
-      <div class="card">
-        <a href="text-to-speech.html">🗣️ Text to Speech</a>
-        <p>Convert text into natural audio.</p>
-      </div>
-      <div class="card">
-        <a href="currency-converter.html">💱 Currency Converter</a>
-        <p>Live rates with quick conversion.</p>
-      </div>
-      <div class="card">
-        <a href="unit-converter.html">📏 Unit Converter</a>
-        <p>Length, mass, temperature & more.</p>
-      </div>
-      <div class="card">
-        <a href="ip-finder.html">🌍 IP Finder</a>
-        <p>See your public IP & location.</p>
-      </div>
-      <div class="card">
-        <a href="color-picker.html">🎨 Color Picker</a>
-        <p>Pick colors & copy HEX/RGB.</p>
-      </div>
-      <div class="card">
-        <a href="calculator.html">➗ Basic Calculator</a>
-        <p>Clean calculator for quick math.</p>
+  <section class="grid">
+    
+    <div class="card">
+      <p class="title">🧰 Password Generator</p>
+      <p class="desc">Create strong passwords instantly.</p>
+      <div class="actions">
+        <a class="btn primary" href="password-generator.html">Open Tool</a>
+        <a class="btn" href="articles/password-generator-article.html">Read Guide</a>
       </div>
     </div>
+    
 
-    <hr class="sep"/>
-
-    <h2 id="guides" class="section-title">📚 Helpful Guides (Human‑Written)</h2>
-    <div class="grid">
-      <div class="card">
-        <a href="articles/strong-password-tips.html">🔐 Strong Password Tips</a>
-        <p>Simple rules to keep accounts safe.</p>
-      </div>
-      <div class="card">
-        <a href="articles/how-to-use-qr.html">📱 How to Use the QR Tool</a>
-        <p>Scan, share & print your QR like a pro.</p>
-      </div>
-      <div class="card">
-        <a href="articles/how-to-age-calculator.html">🎂 Age Calculator Guide</a>
-        <p>Two ways to calculate your exact age.</p>
-      </div>
-      <div class="card">
-        <a href="articles/youtube-thumbnail-guide.html">🎬 YouTube Thumbnail Guide</a>
-        <p>Find & save HD thumbnails legally.</p>
-      </div>
-      <div class="card">
-        <a href="articles/image-compression-guide.html">🖼️ Image Compression 101</a>
-        <p>Make images smaller & still sharp.</p>
-      </div>
-      <div class="card">
-        <a href="articles/converters-guide.html">📏 Converters: Units & Currency</a>
-        <p>Quick tricks for accurate results.</p>
+    <div class="card">
+      <p class="title">🧰 QR Code Generator</p>
+      <p class="desc">Make QR codes for links & text.</p>
+      <div class="actions">
+        <a class="btn primary" href="qr-code.html">Open Tool</a>
+        <a class="btn" href="articles/qr-code-article.html">Read Guide</a>
       </div>
     </div>
+    
 
-    <p class="tools-note center"><small class="mono">Tip: Press <kbd>Ctrl</kbd> + <kbd>D</kbd> to bookmark this page.</small></p>
-  </main>
+    <div class="card">
+      <p class="title">🧰 YouTube Thumbnail Downloader</p>
+      <p class="desc">Grab thumbnails in HD.</p>
+      <div class="actions">
+        <a class="btn primary" href="youtube-thumbnail.html">Open Tool</a>
+        <a class="btn" href="articles/youtube-thumbnail-article.html">Read Guide</a>
+      </div>
+    </div>
+    
+
+    <div class="card">
+      <p class="title">🧰 Age Calculator</p>
+      <p class="desc">Find exact age in years, months & days.</p>
+      <div class="actions">
+        <a class="btn primary" href="age-calculator.html">Open Tool</a>
+        <a class="btn" href="articles/age-calculator-article.html">Read Guide</a>
+      </div>
+    </div>
+    
+
+    <div class="card">
+      <p class="title">🧰 Image Compressor</p>
+      <p class="desc">Shrink images without losing quality.</p>
+      <div class="actions">
+        <a class="btn primary" href="image-compressor.html">Open Tool</a>
+        <a class="btn" href="articles/image-compressor-article.html">Read Guide</a>
+      </div>
+    </div>
+    
+
+    <div class="card">
+      <p class="title">🧰 Word Counter</p>
+      <p class="desc">Count words, characters & lines.</p>
+      <div class="actions">
+        <a class="btn primary" href="word-counter.html">Open Tool</a>
+        <a class="btn" href="articles/word-counter-article.html">Read Guide</a>
+      </div>
+    </div>
+    
+
+    <div class="card">
+      <p class="title">🧰 Text to Speech</p>
+      <p class="desc">Convert text to natural audio.</p>
+      <div class="actions">
+        <a class="btn primary" href="text-to-speech.html">Open Tool</a>
+        <a class="btn" href="articles/text-to-speech-article.html">Read Guide</a>
+      </div>
+    </div>
+    
+
+    <div class="card">
+      <p class="title">🧰 Currency Converter</p>
+      <p class="desc">Live rates with quick conversion.</p>
+      <div class="actions">
+        <a class="btn primary" href="currency-converter.html">Open Tool</a>
+        <a class="btn" href="articles/currency-converter-article.html">Read Guide</a>
+      </div>
+    </div>
+    
+
+    <div class="card">
+      <p class="title">🧰 Unit Converter</p>
+      <p class="desc">Length, mass, temperature & more.</p>
+      <div class="actions">
+        <a class="btn primary" href="unit-converter.html">Open Tool</a>
+        <a class="btn" href="articles/unit-converter-article.html">Read Guide</a>
+      </div>
+    </div>
+    
+
+    <div class="card">
+      <p class="title">🧰 IP Finder</p>
+      <p class="desc">See your public IP & location.</p>
+      <div class="actions">
+        <a class="btn primary" href="ip-finder.html">Open Tool</a>
+        <a class="btn" href="articles/ip-finder-article.html">Read Guide</a>
+      </div>
+    </div>
+    
+
+    <div class="card">
+      <p class="title">🧰 Color Picker</p>
+      <p class="desc">Pick colors & copy HEX/RGB.</p>
+      <div class="actions">
+        <a class="btn primary" href="color-picker.html">Open Tool</a>
+        <a class="btn" href="articles/color-picker-article.html">Read Guide</a>
+      </div>
+    </div>
+    
+
+    <div class="card">
+      <p class="title">🧰 Basic Calculator</p>
+      <p class="desc">Clean calculator for quick math.</p>
+      <div class="actions">
+        <a class="btn primary" href="calculator.html">Open Tool</a>
+        <a class="btn" href="articles/calculator-article.html">Read Guide</a>
+      </div>
+    </div>
+    
+  </section>
 
   <footer>
-    © 2025 Zainova Hub — Built with ❤️ for humans. No cookies, no tracking.
+    <p class="kicker">© 2025 Zain Tools — Fast, privacy‑friendly online utilities with human‑written guides.</p>
   </footer>
 </body>
 </html>
